@@ -1,0 +1,12 @@
+#!/bin/sh
+REMOTE="origin"
+WORK_BRANCH="jekyll"
+LOCAL_BRANCH="master"
+REMOTE_BRANCH="master"
+
+while IFS=' ' read local_ref local_sha; do
+    if [ "$local_ref" = "refs/heads/$WORK_BRANCH" ]; then
+        git branch -f $LOCAL_BRANCH $(git subtree split --prefix=_site)
+        git push -f $REMOTE $LOCAL_BRANCH:$REMOTE_BRANCH
+    fi
+done
