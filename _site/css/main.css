@@ -1,0 +1,12 @@
+#navigation {
+  width: 16em;
+  background: #181818;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px; }
+  * html #navigation {
+    position: absolute; }
+
+#content {
+  margin-left: 16em; }

@@ -1,0 +1,17 @@
+#navigation {
+    width: $navigation-width;
+    background: $theme-color;
+    position: fixed;
+
+    top: 0px;
+    bottom: 0px;
+    #{$navigation-side}: 0px;
+
+    * html & {
+        position: absolute;
+    }
+}
+
+#content {
+    margin-#{$navigation-side}: $navigation-width;
+}
