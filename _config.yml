@@ -1,5 +1,5 @@
 # site information {{{
-title: cat /dev/urandom
+title: cat life > /dev/urandom
 description: "# Saleem Rashid"
 # }}}
 
@@ -42,7 +42,7 @@ theme:
     # }}}
 
     # navigation {{{
-    navigation-width: 16em
+    navigation-width: 20em
     navigation-padding-left: 1em
     navigation-padding-right: 2em
     navigation-padding-anchor: 2em
