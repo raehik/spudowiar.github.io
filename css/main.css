@@ -37,8 +37,9 @@ pre {
 
 .site-title {
   font-size: 1.25em; }
-  a .site-title {
-    text-decoration: none; }
+  .site-title * {
+    text-decoration: none;
+    color: #d8d8d8; }
 
 .accent, .prompt {
   color: #585858; }
