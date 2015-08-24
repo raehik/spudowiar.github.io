@@ -304,4 +304,4 @@ them in `/var/log` and, if using `systemd`, you can find stuff in the journal.
 Finally, check if you got the configuration options correct for OpenWRT and the
 kernel. Easy mistake to make!
 
-:D
+:smile:

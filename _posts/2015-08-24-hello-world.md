@@ -17,3 +17,5 @@ stuff out. And guess what? It's
 
 **TL;DR:** It's a blog about programming and stuff. Also, this is the first post. But it is
 the second post.
+
+:smile:
