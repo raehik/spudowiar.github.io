@@ -19,7 +19,7 @@ github_username:  spudowiar
 markdown: redcarpet
 # }}}
 
-# theme {{{
+# theme {{
 theme:
     # main {{{
     fonts: "\"Source Sans Pro\", sans-serif"
@@ -39,7 +39,6 @@ theme:
 
     # navigation {{{
     navigation-width: 16em
-    navigation-max-width: 25%
     navigation-side: left
     # }}}
 # }}}
