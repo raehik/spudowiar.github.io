@@ -234,7 +234,7 @@ pre {
   padding-right: 2em;
   text-align: center; }
 
-@media (min-width: 1280px) {
+@media (min-width: 914.28571px) {
   html, body {
     font-size: 16px; }
 
@@ -254,4 +254,4 @@ pre {
   #content {
     padding-left: 4em;
     margin-left: 23em;
-    width: 54em; } }
+    width: 31.14286em; } }
