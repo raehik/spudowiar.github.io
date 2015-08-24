@@ -291,7 +291,7 @@ If it boots into OpenWRT, then it couldn't find the memory stick or `/sbin/init`
 it. Check you got `$USB` right, add some debugging into `/etc/debian_boot` (such as
 `ls /dev` or `df` or `mount` - be creative!) For really slow memory sticks, if the 
 _Upgrading_ LED fails to light, increase `$WAIT` to 10 or 15 then hop on to Amazon 
-and buy yourself a new one :)
+and buy yourself a new one :wink:
 
 If you followed this tutorial you have many many logs for you to read. Where? Firstly
 there is `/debian.log` on the NAND if the _Power_ LED fails to light (after a
