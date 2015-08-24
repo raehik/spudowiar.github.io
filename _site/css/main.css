@@ -23,11 +23,11 @@ h1, h2, h3, h4, h5, h6 {
 
 code {
   padding: 1px 2px;
-  background-color: #EEEEFF;
-  border: 1px solid #EFEFFF;
-  -moz-box-shadow: inset 0 0 2px #EAEAFA;
-  -webkit-box-shadow: inset 0 0 2px #EAEAFA;
-  box-shadow: inset 0 0 2px #EAEAFA; }
+  background-color: #EEEEEE;
+  border: 1px solid #EFEFEF;
+  -moz-box-shadow: inset 0 0 2px #EAEAEA;
+  -webkit-box-shadow: inset 0 0 2px #EAEAEA;
+  box-shadow: inset 0 0 2px #EAEAEA; }
 
 pre {
   padding: 1em;
