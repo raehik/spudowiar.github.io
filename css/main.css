@@ -371,6 +371,8 @@ pre {
 
 .post-content {
   line-height: 1.6; }
+  .post-content img {
+    max-width: 100%; }
 
 #navigation {
   background: #181818;
