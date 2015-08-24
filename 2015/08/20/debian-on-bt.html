@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:400,500,300,600,700' rel='stylesheet' type='text/css'/>
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
+
+        <title>Debian on a BT Home Hub</title>
+
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+    <body>
+        <div id="navigation">
+            <div class="container">
+                <h1 class="site-title">
+                    <a href="/">
+                        <span class="prompt">></span>
+                        cat life > /dev/urandom
+                    </a>
+                </h1>
+                <p class="site-description accent">
+                    <a href="/"># Saleem Rashid</a>
+                </p>
+                <ul class="social-list">
+                    
+                    <li><a href="https://github.com/spudowiar"><i class="fa fa-github"></i>&nbsp; spudowiar</a></li>
+                    
+                    
+                    <li><a href="https://twitter.com/spudowiar"><i class="fa fa-twitter"></i>&nbsp; spudowiar</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div class="post">
+    <h1 class="post-title">Debian on a BT Home Hub</h1>
+    <span class="post-meta">Aug 20, 2015</span>
+    <div class="post-content"><p><em>This is actually the second post...?</em></p>
+
+<p><em>Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 Type B running
+OpenWRT. Access to the netconsole is assumed as is experience with Debian and Linux, in
+general.</em></p>
+
+<p>Why? I have a BT Home Hub, a memory stick and way too much free time!</p>
+
+<p><em><strong>NOTE:</strong> When configuring software using <code>menuconfig</code> it may be useful to know that 
+pressing <code>/</code> pulls up a search box for configuration options.</em></p>
+
+<h2>Outcome</h2>
+
+<p>It works. Really? Yep.</p>
+
+<p>Debian 8.1 and OpenWRT <code>r46693</code> with <code>SysVinit</code> or <code>systemd</code></p>
+
+<h2>OpenWRT</h2>
+
+<h3>Getting the OpenWRT source code</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone git://git.openwrt.org/openwrt.git
+<span class="nb">cd </span>openwrt
+./scripts/feeds update -a
+./scripts/feeds install -a
+</code></pre></div>
+<h3>Configuring OpenWRT</h3>
+
+<p>Start <code>menuconfig</code> and select the target</p>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_TARGET_lantiq=y
+CONFIG_TARGET_lantiq_xway=y
+CONFIG_TARGET_lantiq_xway_BTHOMEHUBV2B=y
+</code></pre></div>
+<p>Load the defaults for the target</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">make defconfig
+</code></pre></div>
+<p>Start <code>menuconfig</code> again and configure the following options or append these to
+<code>.config</code> and re-run <code>make defconfig</code></p>
+
+<ul>
+<li>For USB support</li>
+</ul>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_KERNEL_BLK_DEV_BSG=y
+CONFIG_PACKAGE_kmod-usb2=y
+CONFIG_PACKAGE_kmod-usb-storage=y
+CONFIG_PACKAGE_kmod-usb-storage-extras=y
+</code></pre></div>
+<ul>
+<li>Populates <code>/dev</code> during early boot and a requirement of Debian</li>
+</ul>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_KERNEL_DEVTMPFS=y
+CONFIG_KERNEL_DEVTMPFS_MOUNT=y
+</code></pre></div>
+<ul>
+<li>For <code>ext4</code> support (change accordingly)</li>
+</ul>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_PACKAGE_kmod-fs-ext4=y
+</code></pre></div>
+<ul>
+<li>For U-Boot configuration</li>
+</ul>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_PACKAGE_uboot-envtools=y
+CONFIG_UBOOT_ENVTOOLS_UBI=y
+</code></pre></div>
+<ul>
+<li>For <code>systemd</code> support (not required if using <code>SysVinit</code>)</li>
+</ul>
+<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig">CONFIG_KERNEL_CGROUPS=y
+CONFIG_KERNEL_FHANDLE=y
+</code></pre></div>
+<h3>Configuring the kernel</h3>
+
+<ul>
+<li>From <code>menuconfig</code> disable <code>CONFIG_SOFT_FLOAT</code></li>
+<li>Start <code>make kernel_menuconfig</code> and enable <code>CONFIG_MIPS_FPU_EMULATOR</code></li>
+</ul>
+
+<p><em><strong>NOTE:</strong> When using <code>kernel_menuconfig</code> you may find options selected there are 
+ignored. Although <code>kernel_menuconfig</code> provides direct access to the kernel&#39;s config,
+options available in OpenWRT&#39;s config (such as those in the previous section)
+override those in the kernel&#39;s config. At the time of writing, the MIPS FPU emulator
+is not available as an OpenWRT config option.</em></p>
+
+<h3>Building OpenWRT</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">make
+</code></pre></div>
+<h3>Flashing OpenWRT</h3>
+
+<p>The <code>uImage</code> kernel and initramfs can be found in <code>bin/lantiq</code> and the <code>ubinized</code>
+images can be found in <code>build_dir/target-*/linux-lantiq_xway</code>. Make sure to flash the
+<code>ubifs</code> image instead of the <code>squashfs</code> image as the overlay is not mounted early
+enough in the boot process.</p>
+
+<h2>Debian</h2>
+
+<p>The simplest way to install Debian is to use <code>debootstrap</code> and <code>qemu-user-static</code>
+then copy the folder to the USB drive. The USB drive should be partitioned with swap 
+and a partition of the chosen filesystem (in this case, <code>ext2</code>). I partitoned mine
+with <code>swap</code> first (<code>/dev/sda1</code>) then <code>rootfs</code> after (<code>/dev/sda2</code>).</p>
+
+<p>To build the <code>rootfs</code></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">debootstrap --arch<span class="o">=</span>mips --foreign jessie debian http://ftp.uk.debian.org/debian/
+cp /usr/bin/qemu-mips-static debian/usr/bin
+chroot debian /debootstrap/debootstrap --second-stage
+</code></pre></div>
+<p>On a <code>systemd</code>-based host, you can enter the <code>rootfs</code> using <code>systemd-nspawn</code></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">systemd-nspawn -D debian -n
+</code></pre></div>
+<p>Otherwise use <code>chroot</code> and mount the pseudo-filesystems</p>
+
+<p>Once you are inside the <code>rootfs</code>, you can configure the system and install packages. 
+Make sure to setup the Ethernet switch and install and configure <code>openssh-server</code></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/network/interfaces</span>
+<span class="s">auto eth0</span>
+<span class="s">iface eth0 inet static</span>
+<span class="s">    address 192.168.1.1</span>
+<span class="s">    netmask 255.255.255.0</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<p>To ensure <code>systemd-udevd</code> can access the modules, run</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ln -s ../openwrt/lib/modules /lib/
+</code></pre></div>
+<p>And enable the swap in <code>/etc/fstab</code></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/fstab</span>
+<span class="s"># &lt;file system&gt;                 &lt;mount point&gt;   &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</span>
+<span class="s">/dev/sda1                       none            swap    sw       0      0</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<p>Also, you could downgrade to <code>SysVinit</code> (tested, working) at this stage and a useful 
+trick would be to light the <em>Power</em> LED on boot (<em><strong>NOTE</strong>: there is a red one!</em>)</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls /sys/class/leds/
+</code></pre></div>
+<h2>Installation</h2>
+
+<p>Debian&#39;s <code>init</code> must be run with PID 1. The boot process of OpenWRT is simple</p>
+
+<ol>
+<li><em>(device-specific stuff happens)</em></li>
+<li><code>/etc/preinit</code> is launched with PID 1</li>
+<li><code>/etc/preinit</code> <code>exec</code>s <code>/sbin/init</code></li>
+<li><code>/sbin/init</code> <code>exec</code>s <code>/sbin/procd</code> - <a href="http://wiki.openwrt.org/doc/techref/procd">OpenWRT&#39;s new all-singing all-dancing
+everything-replacement init system</a></li>
+<li><em>(stuff happens)</em></li>
+<li><code>/etc/preinit</code> launched as a child of <code>procd</code></li>
+<li><em>(stuff happens)</em></li>
+</ol>
+
+<p>The idea is to rewire the boot process to</p>
+
+<ol>
+<li><em>(device-specific stuff happens)</em></li>
+<li><code>/etc/preinit</code> is launched with PID 1</li>
+<li><code>/etc/preinit</code> <code>exec</code>s Debian&#39;s init <strong>OR</strong> continues boot</li>
+</ol>
+
+<p>We only modify <code>/etc/preinit</code> slightly (it <code>source</code>s <code>/etc/debian_boot</code> and redirects
+the output to a debugging log on the NAND). We need to keep PID 1 but don&#39;t want to
+<code>exec</code> to <code>/etc/debian_boot</code> in case, for some reason, we can&#39;t boot Debian. Instead
+we <code>source</code> it so it runs in the same shell.</p>
+
+<p>The anatomy of <code>/etc/debian_boot</code> is also very simple</p>
+
+<ul>
+<li>mount <code>/proc</code>, <code>/sys</code> (<code>/dev</code> will be mounted by <code>CONFIG_DEVTMPFS_MOUNT</code>)</li>
+<li>wait for USB drive</li>
+<li>if found, mount and <code>exec</code> Debian&#39;s init</li>
+<li>else, do nothing (so we return to and continue <code>/etc/preinit</code>)</li>
+</ul>
+
+<p>To inject our code into <code>/etc/preinit</code> we must find the line which corresponds to 
+step 3 in the OpenWRT boot process (shown above, in the first one)</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span> -z <span class="s2">&quot;$PREINIT&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> /sbin/init
+</code></pre></div>
+<p>This line was the very first line of code (I&#39;m psychic!). Above this line we insert</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span> <span class="nv">$$</span> -eq <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> . /etc/debian_boot &gt;&gt;/debian.log 2&gt;<span class="p">&amp;</span>1
+</code></pre></div>
+<p>This means it only runs the first time (when PID is 1) and logs <code>stderr</code> and <code>stdout</code> 
+to <code>/debian.log</code> on the flash</p>
+
+<p>Here is <code>/etc/debian_boot</code></p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/sh</span>
+<span class="nv">USB</span><span class="o">=</span><span class="s2">&quot;/dev/sda2&quot;</span>
+<span class="nv">WAIT</span><span class="o">=</span>5
+
+<span class="nb">echo</span> <span class="s2">&quot;====================&quot;</span>
+date
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+<span class="nb">echo</span> <span class="s2">&quot;Kernel filesystems mounted.&quot;</span>
+
+<span class="k">for</span> module in ehci-hcd ehci-platform ltq_hcd_danube scsi_mod sd_mod usb-storage jbd2 ext4<span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Loading $module&quot;</span>
+    modprobe <span class="nv">$module</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&quot;Modules loaded.&quot;</span>
+
+mkdir -p /debian
+<span class="k">for</span> i in <span class="k">$(</span>seq <span class="m">0</span> <span class="nv">$WAIT</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Waiting $i seconds.&quot;</span>
+    mount -o rw,sync,noatime <span class="s2">&quot;$USB&quot;</span> /debian <span class="o">&amp;&amp;</span> <span class="nb">break</span>
+<span class="nb">    </span>sleep 1
+<span class="k">done</span>
+
+<span class="k">if</span> <span class="o">[</span> -e /debian/sbin/init -o -L /debian/sbin/init <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Linux installation found.&quot;</span>
+    <span class="nb">echo </span><span class="m">255</span> &gt; <span class="s2">&quot;/sys/class/leds/soc:orange:upgrading/brightness&quot;</span>
+    <span class="nb">cd</span> /debian
+    mkdir -p openwrt
+    pivot_root . openwrt
+    <span class="nb">echo</span> <span class="s2">&quot;Starting /sbin/init.&quot;</span>
+    <span class="nb">exec</span> /sbin/init
+<span class="k">fi</span>
+
+umount /debian
+umount /sys
+umount /proc
+<span class="nb">echo</span> <span class="s2">&quot;Falling back to OpenWRT.&quot;</span>
+</code></pre></div>
+<p>When reading this script, remember that the output is logged (e.g. <code>date</code> is for 
+logging purposes only and won&#39;t affect the bootup, ditto for the <code>echo</code>s). This 
+script  mounts <code>/proc</code> and <code>/sys</code>, loads required modules (<code>jdb2</code> is a dependency of 
+<code>ext4</code>), waits on the USB for 5 seconds. If it is mounted and has <code>/sbin/init</code>, the 
+orange  <em>Upgrading</em> LED is lit and it is <code>pivot</code>ed into and <code>/sbin/init</code> is <code>exec</code>ed. 
+Otherwise, we <code>umount</code> our mountpoints (to ensure the environment is as expected for 
+OpenWRT) and fallthrough. Remember to change <code>$USB</code> to your requirements.</p>
+
+<p>I would prefer to use <code>[ -x /debian/sbin/init ]</code> but that won&#39;t work in the case of
+<code>systemd</code> when it is a symlink to <code>/lib/systemd/systemd</code>, a file that is non-existent 
+until we <code>pivot_root</code>. Sad face.</p>
+
+<p><em><strong>NOTE:</strong> I&#39;m unaware whether we need <code>ehci-hcd</code> as we also use <code>ltq_hcd_danube</code>. I
+do know that we need `ltq</em>hcd_danube<code>and that</code>ehci-hcd<code>won&#39;t work on its own.
+Ditto for</code>echi-platform`_</p>
+
+<p>The script needn&#39;t be marked executable and, to avoid mistakes, perhaps shouldn&#39;t.</p>
+
+<p>Before booting, check that you can mount the USB drive from OpenWRT.</p>
+
+<h2>Booting</h2>
+
+<p>This is the hardest part yet.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">reboot
+</code></pre></div>
+<h2>Troubleshooting - aka RTFL (the last one stands for logs)</h2>
+
+<p>If it boots into OpenWRT, then it couldn&#39;t find the memory stick or <code>/sbin/init</code> on 
+it. Check you got <code>$USB</code> right, add some debugging into <code>/etc/debian_boot</code> (such as
+<code>ls /dev</code> or <code>df</code> or <code>mount</code> - be creative!) For really slow memory sticks, if the 
+<em>Upgrading</em> LED fails to light, increase <code>$WAIT</code> to 10 or 15 then hop on to Amazon 
+and buy yourself a new one :)</p>
+
+<p>If you followed this tutorial you have many many logs for you to read. Where? Firstly
+there is <code>/debian.log</code> on the NAND if the <em>Power</em> LED fails to light (after a
+<strong>REASONABLE</strong> amount of time - don&#39;t be impatient!). Before unplugging the USB
+drive, try <code>ping</code>ing the router, it may be still booting!</p>
+
+<p>If that doesn&#39;t tell you anything, howsa about some of them Debian logs? You can find
+them in <code>/var/log</code> and, if using <code>systemd</code>, you can find stuff in the journal.</p>
+
+<p>Finally, check if you got the configuration options correct for OpenWRT and the
+kernel. Easy mistake to make!</p>
+
+<p>:D</p>
+</div>
+</div>
+
+        </div>
+    </body>
+</html>
