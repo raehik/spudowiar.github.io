@@ -41,7 +41,8 @@ pre {
     text-decoration: none;
     color: #d8d8d8; }
 
-.accent, .prompt {
+.accent, .accent a, .prompt, .prompt a {
+  text-decoration: none;
   color: #585858; }
 
 #content {
