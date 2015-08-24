@@ -46,7 +46,7 @@ theme:
     navigation-padding-left: 1em
     navigation-padding-right: 2em
     navigation-padding-anchor: 2em
-    navigation-max-width: 25%
+    navigation-max-width: 35%
     navigation-side: left
     navigation-anchor: bottom
     # }}}

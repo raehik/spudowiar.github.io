@@ -1,0 +1,17 @@
+---
+title: Hello World
+layout: post
+---
+
+# This is a blog
+
+Yep. It's a blog. It's my blog. Why? Because it's useful.
+
+It's useful to me and hopefully, it'll be useful to others. It'll be a place for me to
+document things for me to look back on and for unsuspecting interneters to find.
+
+It'll be an adventure of moaning and coding and you'll be my sounding board as I try different
+stuff out. And guess what? It's
+[open source](https://github.com/spudowiar/spudowiar.github.io)!
+
+**TL;DR:** It's a blog about programming and stuff.
