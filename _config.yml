@@ -2,6 +2,8 @@
 title: cat life > /dev/urandom
 title_prefix: "spudowiar: "
 description: "# Saleem Rashid"
+keep_files:
+    - .nojekyll
 # }}}
 
 # URL {{{
@@ -27,7 +29,7 @@ gems:
     - jemoji
 # }}}
 
-# theme {{
+# theme {{{
 theme:
     # main {{{
     fonts: '"Source Sans Pro", sans-serif'
