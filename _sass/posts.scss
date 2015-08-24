@@ -1,0 +1,24 @@
+.post-list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+    .post-meta {
+        color: #808080;
+        font-size: 0.8em;
+    }
+
+    a {
+        color: $theme-color;
+        text-decoration: none;
+    }
+
+    li {
+        margin-bottom: 2em;
+    }
+
+    h2 {
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+}
