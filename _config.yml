@@ -1,7 +1,6 @@
 # site information {{{
 title: cat /dev/urandom
-description: >
-  Awesome description here
+description: "# Saleem Rashid"
 # }}}
 
 # URL {{{
@@ -22,11 +21,11 @@ markdown: redcarpet
 # theme {{
 theme:
     # main {{{
-    fonts: "\"Source Sans Pro\", sans-serif"
-    monospace-fonts: "\"Source Code Pro\", monospace"
-    content-padding: 3em 3em 3em 3em
+    fonts: '"Source Sans Pro", sans-serif'
+    monospace-fonts: '"Source Code Pro", monospace'
+    content-padding: 2em 2em 2em 2em
     content-padding-left: 6em
-    content-padding-right: 3em
+    content-padding-right: 2em
     # }}}
 
     # theme {{{
