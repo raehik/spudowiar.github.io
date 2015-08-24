@@ -37,12 +37,29 @@ pre {
 
 .site-title {
   font-size: 1.25em; }
+  a .site-title {
+    text-decoration: none; }
 
 .accent, .prompt {
   color: #585858; }
 
 #content {
   padding: 2em 2em 2em 2em; }
+
+.social-list {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; }
+  .social-list * {
+    text-decoration: none;
+    color: #d8d8d8; }
+  .social-list i.fa {
+    color: #585858;
+    width: 1em;
+    height: 1em;
+    text-align: left; }
+  .social-list li {
+    margin-bottom: 0.25em; }
 
 /**
  * Syntax highlighting styles
@@ -187,9 +204,6 @@ pre {
   list-style-type: none;
   padding: 0px;
   margin: 0px; }
-  .post-list .post-meta {
-    color: #808080;
-    font-size: 0.8em; }
   .post-list a {
     color: #181818;
     text-decoration: none; }
@@ -198,6 +212,15 @@ pre {
   .post-list h2 {
     margin-top: 5px;
     margin-bottom: 0px; }
+
+.post-title {
+  margin-top: 0px;
+  margin-bottom: 0.2em;
+  font-size: 3em; }
+
+.post-meta {
+  color: #808080;
+  font-size: 0.9em; }
 
 #navigation {
   background: #181818;
