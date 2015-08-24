@@ -7,7 +7,7 @@ html, body {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   background: #FFFFFF;
-  font-size: 18px; }
+  font-size: 16px; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300; }
@@ -233,7 +233,10 @@ pre {
   padding-right: 2em;
   text-align: center; }
 
-@media (min-width: 64em) {
+@media (min-width: 1152px) {
+  html, body {
+    font-size: 18px; }
+
   #navigation {
     position: fixed;
     text-align: left;

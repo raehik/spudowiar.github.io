@@ -16,8 +16,14 @@
 
 // vertical navigation {{{
 $navigation-page-min-width: $navigation-width * 100% / $navigation-max-width;
+$navigation-media-query: $navigation-page-min-width / 1em;
+$navigation-media-query: $navigation-media-query * $max-font-size;
 
-@media (min-width: $navigation-page-min-width) {
+@media (min-width: $navigation-media-query) {
+    html, body {
+        font-size: $max-font-size;
+    }
+
     #navigation {
         position: fixed;
         text-align: #{$navigation-side};
