@@ -13,20 +13,25 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 
-pre {
-    padding: 1em;
-    overflow-x: scroll;
+pre, code {
+    font-size: 16px;
+    background-color: #EEF;
+    border-radius: 2px;
+    border: 1px solid #EEE;
 }
 
 code {
     padding: 1px 5px;
 }
 
-pre, code {
-    font-size: 16px;
-    background-color: #EEF;
-    border-radius: 2px;
-    border: 1px solid #EEE;
+pre {
+    padding: 1em;
+    overflow-x: scroll;
+
+    code {
+        padding: 0px;
+        border: none;
+    }
 }
 
 @if $site-title-monospace {
