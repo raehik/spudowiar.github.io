@@ -269,9 +269,9 @@ I would prefer to use `[ -x /debian/sbin/init ]` but that won't work in the case
 `systemd` when it is a symlink to `/lib/systemd/systemd`, a file that is non-existent 
 until we `pivot_root`. Sad face.
 
-_**NOTE:** I'm unaware whether we need `ehci-hcd` as we also use `ltq_hcd_danube`. I
-do know that we need `ltq_hcd_danube` and that `ehci-hcd` won't work on its own.
-Ditto for `echi-platform`_
+_**NOTE:** I'm unaware whether we need `ehci-hcd` as we also use `ltq_hcd_danube`. I_
+_do know that we need `ltq_hcd_danube` and that `ehci-hcd` won't work on its own._
+_Ditto for `echi-platform`_
 
 The script needn't be marked executable and, to avoid mistakes, perhaps shouldn't.
 
