@@ -23,7 +23,7 @@ theme:
     # main {{{
     fonts: '"Source Sans Pro", sans-serif'
     min-font-size: 16px
-    max-font-size: 18px
+    max-font-size: 16px
     monospace-fonts: '"Source Code Pro", monospace'
     content-padding: 2em 2em 2em 2em
     content-padding-left: 4em

@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300; }
 
 pre, code {
-  font-size: 16px;
+  font-size: 15px;
   background-color: #EEF;
   border-radius: 2px;
   border: 1px solid #EFEFEF;
@@ -233,9 +233,9 @@ pre {
   padding-right: 2em;
   text-align: center; }
 
-@media (min-width: 1152px) {
+@media (min-width: 1024px) {
   html, body {
-    font-size: 18px; }
+    font-size: 16px; }
 
   #navigation {
     position: fixed;
