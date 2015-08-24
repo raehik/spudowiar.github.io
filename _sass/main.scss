@@ -17,3 +17,7 @@ html, body {
 .accent, .prompt {
     color: $theme-color-accent;
 }
+
+#content {
+    padding: $content-padding;
+}

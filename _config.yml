@@ -24,6 +24,9 @@ theme:
     # main {{{
     fonts: "\"Source Sans Pro\", sans-serif"
     monospace-fonts: "\"Source Code Pro\", monospace"
+    content-padding: 4em 4em 4em 8em
+    content-padding-left: 8em
+    content-padding-right: 4em
     # }}}
 
     # theme {{{
@@ -39,7 +42,12 @@ theme:
 
     # navigation {{{
     navigation-width: 16em
+    navigation-padding-left: 1em
+    navigation-padding-right: 2em
+    navigation-padding-anchor: 2em
+    navigation-max-width: 25%
     navigation-side: left
+    navigation-anchor: bottom
     # }}}
 # }}}
 

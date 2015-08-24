@@ -11,10 +11,12 @@
     </head>
     <body>
         <div id="navigation">
-            <h1 class="site-title">
-                {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
-                {{ site.title }}
-            </h1>
+            <div class="container">
+                <h1 class="site-title">
+                    {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
+                    {{ site.title }}
+                </h1>
+            </div>
         </div>
         <div id="content">
             {{ content }}
