@@ -16,8 +16,10 @@
         <div id="navigation">
             <div class="container">
                 <h1 class="site-title">
-                    {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
-                    {{ site.title }}
+                    <a href="{{ site.baseurl }}/">
+                        {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
+                        {{ site.title }}
+                    </a>
                 </h1>
                 <p class="site-description accent">{{ site.description }}</p>
                 <ul class="social-list">

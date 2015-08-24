@@ -59,8 +59,9 @@ pre {
 .site-title {
     font-size: 1.25em;
 
-    a & {
+    * {
         text-decoration: none;
+        color: $theme-text-color;
     }
 }
 
