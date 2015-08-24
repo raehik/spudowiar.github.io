@@ -220,6 +220,9 @@ pre {
   margin-top: 0px;
   margin-bottom: 0.2em;
   font-size: 3em; }
+  .post-title a {
+    color: #181818;
+    text-decoration: none; }
 
 .post-meta {
   color: #808080;
