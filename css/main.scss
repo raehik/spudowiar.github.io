@@ -1,7 +1,11 @@
 ---
 # main.scss
 ---
-
 @import "mixins";
-@import "config";
+
+{% for item in site.theme %}
+${{ item[0] }}: {{ item[1] }};
+{% endfor %}
+
+@import "main";
 @import "navigation";

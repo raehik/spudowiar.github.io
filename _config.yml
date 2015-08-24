@@ -1,5 +1,5 @@
 # site information {{{
-title: Your awesome title
+title: cat /dev/urandom
 description: >
   Awesome description here
 # }}}
@@ -17,6 +17,30 @@ github_username:  spudowiar
 
 # markdown {{{
 markdown: redcarpet
+# }}}
+
+# theme {{
+theme:
+    # main {{{
+    fonts: "\"Source Sans Pro\", sans-serif"
+    monospace-fonts: "\"Source Code Pro\", monospace"
+    # }}}
+
+    # theme {{{
+    theme-color: "#181818"
+    theme-text-color: "#d8d8d8"
+    theme-color-accent: "#585858"
+    # }}}
+
+    # title {{{
+    site-title-monospace: true
+    site-title-prompt: true
+    # }}}
+
+    # navigation {{{
+    navigation-width: 16em
+    navigation-side: left
+    # }}}
 # }}}
 
 # vim: fdm=marker

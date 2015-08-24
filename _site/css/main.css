@@ -1,12 +1,20 @@
-#navigation {
-  width: 16em;
-  background: #181818;
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0px; }
-  * html #navigation {
-    position: absolute; }
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Source Sans Pro", sans-serif; }
 
-#content {
-  margin-left: 16em; }
+.site-title {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 500;
+  font-size: 1.25em; }
+
+.accent, .prompt {
+  color: #585858; }
+
+#navigation {
+  background: #181818;
+  color: #d8d8d8; }
+
+#navigation {
+  padding: 1em;
+  text-align: center; }

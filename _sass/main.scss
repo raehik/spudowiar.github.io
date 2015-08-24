@@ -1,0 +1,19 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: $fonts;
+}
+
+.site-title {
+    @if $site-title-monospace {
+        font-family: $monospace-fonts;
+    }
+
+    font-weight: 500;
+    font-size: 1.25em;
+}
+
+.accent, .prompt {
+    color: $theme-color-accent;
+}

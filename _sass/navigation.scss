@@ -1,17 +1,15 @@
+// common {{{
 #navigation {
-    width: $navigation-width;
     background: $theme-color;
-    position: fixed;
-
-    top: 0px;
-    bottom: 0px;
-    #{$navigation-side}: 0px;
-
-    * html & {
-        position: absolute;
-    }
+    color: $theme-text-color;
 }
+// }}}
 
-#content {
-    margin-#{$navigation-side}: $navigation-width;
+// horizontal navigation {{{
+#navigation {
+    padding: 1em;
+    text-align: center;
 }
+// }}}
+
+// vim: fdm=marker
