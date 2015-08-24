@@ -16,6 +16,9 @@ github_username:  spudowiar
 
 # markdown {{{
 markdown: redcarpet
+highlighter: pygments
+redcarpet:
+    extensions: ["no_intra_emphasis"]
 # }}}
 
 # theme {{

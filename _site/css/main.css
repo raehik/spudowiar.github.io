@@ -22,7 +22,7 @@ pre, code {
   box-shadow: inset 0 0 2px #EEE; }
 
 code {
-  padding: 1px 5px; }
+  padding: 0px 4px; }
 
 pre {
   padding: 1em;
@@ -223,6 +223,9 @@ pre {
 .post-meta {
   color: #808080;
   font-size: 0.9em; }
+
+.post-content {
+  line-height: 1.6; }
 
 #navigation {
   background: #181818;
