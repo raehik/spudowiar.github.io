@@ -1,3 +1,6 @@
+* {
+  outline: none; }
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -179,6 +182,22 @@ pre {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+.post-list {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; }
+  .post-list .post-meta {
+    color: #808080;
+    font-size: 0.8em; }
+  .post-list a {
+    color: #181818;
+    text-decoration: none; }
+  .post-list li {
+    margin-bottom: 2em; }
+  .post-list h2 {
+    margin-top: 5px;
+    margin-bottom: 0px; }
 
 #navigation {
   background: #181818;
