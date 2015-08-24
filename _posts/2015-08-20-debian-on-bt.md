@@ -3,7 +3,7 @@ title: Debian on a BT Home Hub
 layout: post
 ---
 
-_This is actually the second post...?_
+_This is actually the second post? But it's the first?_
 
 _Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 Type B running
 OpenWRT. Access to the netconsole is assumed as is experience with Debian and Linux, in
