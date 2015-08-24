@@ -36,6 +36,7 @@ $navigation-page-min-width: $navigation-width * 100% / $navigation-max-width;
     }
 
     #content {
+        padding-left: $content-padding-left;
         margin-#{$navigation-side}: $navigation-width + $navigation-padding-left + $navigation-padding-right;
         width: $navigation-page-min-width - $navigation-width - $content-padding-left - $content-padding-right;
     }
