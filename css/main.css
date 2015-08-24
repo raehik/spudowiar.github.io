@@ -46,7 +46,7 @@ pre {
   color: #585858; }
 
 #content {
-  padding: 2em 2em 2em 2em; }
+  padding: 2em 1em 2em 2em; }
 
 .social-list {
   list-style-type: none;
@@ -237,7 +237,7 @@ pre {
   padding-right: 2em;
   text-align: center; }
 
-@media (min-width: 914.28571px) {
+@media (min-width: 1066.66667px) {
   html, body {
     font-size: 16px; }
 
@@ -255,6 +255,6 @@ pre {
       bottom: 2em; }
 
   #content {
-    padding-left: 4em;
+    padding-left: 3em;
     margin-left: 23em;
-    width: 31.14286em; } }
+    width: 42.66667em; } }
