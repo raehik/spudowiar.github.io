@@ -21,7 +21,9 @@
                         {{ site.title }}
                     </a>
                 </h1>
-                <p class="site-description accent">{{ site.description }}</p>
+                <p class="site-description accent">
+                    <a href="{{ site.baseurl }}/">{{ site.description }}</a>
+                </p>
                 <ul class="social-list">
                     {% if site.github_username %}
                     <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github"></i>&nbsp; {{ site.github_username }}</a></li>

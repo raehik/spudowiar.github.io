@@ -66,7 +66,10 @@ pre {
 }
 
 .accent, .prompt {
-    color: $theme-color-accent;
+    &, a {
+        text-decoration: none;
+        color: $theme-color-accent;
+    }
 }
 
 #content {
