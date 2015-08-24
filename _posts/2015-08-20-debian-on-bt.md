@@ -10,6 +10,8 @@ _Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 
 OpenWRT. Access to the [netconsole](http://openwrt.ebilan.co.uk/viewtopic.php?f=11&t=6) is assumed, as is experience with Debian and Linux, in
 general._
 
+![changing the time whilst doing `apt-get install`]({{ site.baseurl }}/assets/apt-get-time-change.png)
+
 Why? I have a BT Home Hub, a memory stick and way too much free time!
 
 _**NOTE:** When configuring software using `menuconfig` it may be useful to know that 
