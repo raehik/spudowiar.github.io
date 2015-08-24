@@ -11,10 +11,33 @@ html, body {
 .accent, .prompt {
   color: #585858; }
 
+#content {
+  padding: 4em 4em 4em 8em; }
+
 #navigation {
   background: #181818;
   color: #d8d8d8; }
 
 #navigation {
-  padding: 1em;
+  padding: 2em;
+  padding-left: 1em;
+  padding-right: 2em;
   text-align: center; }
+
+@media (min-width: 64em) {
+  #navigation {
+    position: fixed;
+    text-align: left;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 16em; }
+    #navigation .container {
+      position: absolute;
+      left: 1em;
+      right: 2em;
+      bottom: 2em; }
+
+  #content {
+    margin-left: 19em;
+    width: 36em; } }
