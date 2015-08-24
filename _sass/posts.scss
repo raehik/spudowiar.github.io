@@ -3,11 +3,6 @@
     padding: 0px;
     margin: 0px;
 
-    .post-meta {
-        color: #808080;
-        font-size: 0.8em;
-    }
-
     a {
         color: $theme-color;
         text-decoration: none;
@@ -21,4 +16,15 @@
         margin-top: 5px;
         margin-bottom: 0px;
     }
+}
+
+.post-title {
+    margin-top: 0px;
+    margin-bottom: 0.2em;
+    font-size: 3em;
+}
+
+.post-meta {
+    color: #808080;
+    font-size: 0.9em;
 }

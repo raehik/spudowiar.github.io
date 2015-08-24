@@ -8,30 +8,46 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:400,500,300,600,700' rel='stylesheet' type='text/css'/>
         <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
 
-        <title>{{ page.title | fallback: site.title }}</title>
+        <title>test</title>
 
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
         <div id="navigation">
             <div class="container">
                 <h1 class="site-title">
-                    {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
-                    {{ site.title }}
+                    <span class="prompt">></span>
+                    cat /dev/urandom
                 </h1>
-                <p class="site-description accent">{{ site.description }}</p>
+                <p class="site-description accent"># Saleem Rashid</p>
                 <ul class="social-list">
-                    {% if site.github_username %}
-                    <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github"></i>&nbsp; {{ site.github_username }}</a></li>
-                    {% endif %}
-                    {% if site.twitter_username %}
-                    <li><a href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter"></i>&nbsp; {{ site.twitter_username }}</a></li>
-                    {% endif %}
+                    
+                    <li><a href="https://github.com/spudowiar"><i class="fa fa-github"></i>&nbsp; spudowiar</a></li>
+                    
+                    
+                    <li><a href="https://twitter.com/spudowiar"><i class="fa fa-twitter"></i>&nbsp; spudowiar</a></li>
+                    
                 </ul>
             </div>
         </div>
         <div id="content">
-            {{ content }}
+            <div class="post">
+    <h1 class="post-title">test</h1>
+    <span class="post-meta">Aug 24, 2015</span>
+    <div class="post-content"><h1>ABC</h1>
+
+<h2>ABC</h2>
+
+<h3>ABC</h3>
+
+<h4>ABC</h4>
+
+<h5>ABC</h5>
+
+<h6>ABC</h6>
+</div>
+</div>
+
         </div>
     </body>
 </html>

@@ -1,3 +1,4 @@
+// general {{{
 * {
     outline: none;
 }
@@ -16,7 +17,9 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
+// }}}
 
+// code tags {{{
 pre, code {
     font-size: 16px;
     background-color: #EEF;
@@ -42,7 +45,9 @@ pre {
         border: none;
     }
 }
+// }}}
 
+// theme {{{
 @if $site-title-monospace {
     .site-title, .site-description {
         font-family: $monospace-fonts;
@@ -53,6 +58,10 @@ pre {
 
 .site-title {
     font-size: 1.25em;
+
+    a & {
+        text-decoration: none;
+    }
 }
 
 .accent, .prompt {
@@ -62,3 +71,29 @@ pre {
 #content {
     padding: $content-padding;
 }
+
+.social-list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+    * {
+        text-decoration: none;
+        color: $theme-text-color;
+    }
+
+    i.fa {
+        color: $theme-color-accent;
+        width: 1em;
+        height: 1em;
+        text-align: left;
+    }
+
+    li {
+        margin-bottom: 0.25em;
+    }
+}
+
+// }}}
+
+// vim: fdm=marker
