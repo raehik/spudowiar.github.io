@@ -24,7 +24,7 @@ theme:
     fonts: '"Source Sans Pro", sans-serif'
     monospace-fonts: '"Source Code Pro", monospace'
     content-padding: 2em 2em 2em 2em
-    content-padding-left: 6em
+    content-padding-left: 4em
     content-padding-right: 2em
     # }}}
 

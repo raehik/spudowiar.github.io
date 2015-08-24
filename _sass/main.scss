@@ -3,6 +3,30 @@ html, body {
     padding: 0px;
 
     font-family: $fonts;
+    font-weight: 300;
+
+    background: #FFFFFF;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+pre {
+    padding: 1em;
+    overflow-x: scroll;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre, code {
+    font-size: 16px;
+    background-color: #EEF;
+    border-radius: 2px;
+    border: 1px solid #EEE;
 }
 
 @if $site-title-monospace {
