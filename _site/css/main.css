@@ -2,6 +2,7 @@
   outline: none; }
 
 html, body {
+  overflow-x: hidden;
   margin: 0px;
   padding: 0px;
   font-family: "Source Sans Pro", sans-serif;
@@ -237,7 +238,7 @@ pre {
   padding-right: 2em;
   text-align: center; }
 
-@media (min-width: 1066.66667px) {
+@media (min-width: 1000px) {
   html, body {
     font-size: 16px; }
 
@@ -257,4 +258,4 @@ pre {
   #content {
     padding-left: 3em;
     margin-left: 23em;
-    width: 42.66667em; } }
+    width: 35.5em; } }

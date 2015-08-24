@@ -43,8 +43,9 @@ $navigation-media-query: $navigation-media-query * $max-font-size;
 
     #content {
         padding-left: $content-padding-left;
-        margin-#{$navigation-side}: $navigation-width + $navigation-padding-left + $navigation-padding-right;
-        width: $navigation-page-min-width - $navigation-width - $content-padding-left - $content-padding-right;
+        $side-margin: $navigation-width + $navigation-padding-left + $navigation-padding-right;
+        margin-#{$navigation-side}: $side-margin;
+        width: $navigation-page-min-width - $side-margin - $content-padding-left - $content-padding-right;
     }
 }
 // }}}
