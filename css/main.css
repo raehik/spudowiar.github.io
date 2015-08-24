@@ -3,16 +3,18 @@ html, body {
   padding: 0px;
   font-family: "Source Sans Pro", sans-serif; }
 
-.site-title {
+.site-title, .site-description {
   font-family: "Source Code Pro", monospace;
-  font-weight: 500;
+  font-weight: 500; }
+
+.site-title {
   font-size: 1.25em; }
 
 .accent, .prompt {
   color: #585858; }
 
 #content {
-  padding: 3em 3em 3em 3em; }
+  padding: 2em 2em 2em 2em; }
 
 #navigation {
   background: #181818;
@@ -41,4 +43,4 @@ html, body {
   #content {
     padding-left: 6em;
     margin-left: 19em;
-    width: 39em; } }
+    width: 40em; } }
