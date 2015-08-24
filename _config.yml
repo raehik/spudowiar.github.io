@@ -33,7 +33,7 @@ theme:
     min-font-size: 16px
     max-font-size: 16px
     monospace-fonts: '"Source Code Pro", monospace'
-    content-padding: 2em 1em 2em 2em
+    content-padding: 2em 1em 2em 1em
     content-padding-left: 3em
     content-padding-right: 1em
     # }}}
