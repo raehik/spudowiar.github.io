@@ -22,6 +22,11 @@
     margin-top: 0px;
     margin-bottom: 0.2em;
     font-size: 3em;
+    
+    a {
+        color: $theme-color;
+        text-decoration: none;
+    }
 }
 
 .post-meta {

@@ -1,6 +1,7 @@
 ---
 title: Hello World
 layout: post
+date: Mon, 24 Aug 2015 16:44:00 +0100
 ---
 
 # This is a blog

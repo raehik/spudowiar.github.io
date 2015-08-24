@@ -4,7 +4,9 @@ layout: default
 <ul class="post-list">
     {% for post in site.posts %}
     <li>
-        <span class="post-meta">{{ post.date | date: "%b  %-d, %Y" }}</span>
+        <span class="post-meta">
+            <time datetime="{{ post.date }}" title="{{ post.date | date: "%b %-d, %Y at %I:%M %p" }}">{{ post.date | date: "%b  %-d, %Y" }}</time>
+        </span>
         <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
     </li>
     {% endfor %}

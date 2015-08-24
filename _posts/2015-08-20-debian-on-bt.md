@@ -1,6 +1,7 @@
 ---
 title: Debian on a BT Home Hub
 layout: post
+date: Mon, 20 Aug 2015 19:37:31 +0100
 ---
 
 _This is actually the second post? But it's the first?_
