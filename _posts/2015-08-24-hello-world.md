@@ -13,7 +13,7 @@ document things for me to look back on and for unsuspecting interneters to find.
 
 It'll be an adventure of moaning and coding and you'll be my sounding board as I try different
 stuff out. And guess what? It's
-[open source](https://github.com/spudowiar/spudowiar.github.io)!
+[open source](!GitHub "spudowiar/spudowiar.github.io")!
 
 **TL;DR:** It's a blog about programming and stuff. Also, this is the first post. But it is
 the second post.
