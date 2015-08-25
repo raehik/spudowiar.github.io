@@ -51,6 +51,9 @@ pre {
     text-decoration: none;
     color: #d8d8d8; }
 
+.site-description {
+  font-size: 1.1em; }
+
 .accent, .accent a, .prompt, .prompt a {
   text-decoration: none;
   color: #585858; }
@@ -380,14 +383,9 @@ pre {
 
 #navigation {
   padding: 2em;
-  padding-left: 1em;
-  padding-right: 2em;
   text-align: center; }
 
 @media (min-width: 1000px) {
-  html, body {
-    font-size: 16px; }
-
   #navigation {
     position: fixed;
     text-align: left;
@@ -402,6 +400,6 @@ pre {
       bottom: 2em; }
 
   #content {
-    padding-left: 3em;
+    padding: 2em 1em 2em 3em;
     margin-left: 23em;
-    width: 35.5em; } }
+    max-width: 64em; } }

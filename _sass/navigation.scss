@@ -8,8 +8,6 @@
 // horizontal navigation {{{
 #navigation {
     padding: $navigation-padding-anchor;
-    padding-left: $navigation-padding-left;
-    padding-right: $navigation-padding-right;
     text-align: center;
 }
 // }}}
@@ -17,13 +15,9 @@
 // vertical navigation {{{
 $navigation-page-min-width: $navigation-width * 100% / $navigation-max-width;
 $navigation-media-query: $navigation-page-min-width / 1em;
-$navigation-media-query: $navigation-media-query * $max-font-size;
+$navigation-media-query: $navigation-media-query * $font-size;
 
 @media (min-width: $navigation-media-query) {
-    html, body {
-        font-size: $max-font-size;
-    }
-
     #navigation {
         position: fixed;
         text-align: #{$navigation-side};
@@ -42,10 +36,9 @@ $navigation-media-query: $navigation-media-query * $max-font-size;
     }
 
     #content {
-        padding-left: $content-padding-left;
-        $side-margin: $navigation-width + $navigation-padding-left + $navigation-padding-right;
-        margin-#{$navigation-side}: $side-margin;
-        width: $navigation-page-min-width - $side-margin - $content-padding-left - $content-padding-right;
+        padding: $content-padding-vertical;
+        margin-#{$navigation-side}: $navigation-width + $navigation-padding-left + $navigation-padding-right;
+        max-width: $content-max-width;
     }
 }
 // }}}

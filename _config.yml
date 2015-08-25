@@ -33,12 +33,11 @@ gems:
 theme:
     # main {{{
     fonts: '"Source Sans Pro", sans-serif'
-    min-font-size: 16px
-    max-font-size: 16px
+    font-size: 16px
     monospace-fonts: '"Source Code Pro", monospace'
     content-padding: 2em 1em 2em 1em
-    content-padding-left: 3em
-    content-padding-right: 1em
+    content-padding-vertical: 2em 1em 2em 3em
+    content-max-width: 64em
     # }}}
 
     # theme {{{
