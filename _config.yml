@@ -1,9 +1,13 @@
 # site information {{{
 title: cat life > /dev/urandom
-title_prefix: "spudowiar: "
 description: "# Saleem Rashid"
 keep_files:
     - .nojekyll
+# }}}
+
+# extra info {{{
+title_prefix: "spudowiar: "
+permalink: pretty
 # }}}
 
 # URL {{{
