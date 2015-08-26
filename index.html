@@ -6,7 +6,7 @@
         <span class="post-meta">
             <time datetime="{{ post.date }}" title="{{ post.date | date: "%b %-d, %Y at %I:%M %p" }}">{{ post.date | date: "%b  %-d, %Y" }}</time>
         </span>
-        <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+        <a href="{{ site.baseurl }}{{ post.url }}"><h2>{{ post.title }}</h2></a>
     </li>
     {% endfor %}
 </ul>
