@@ -1,8 +1,8 @@
----
+--- 
 title: Debian on a BT Home Hub
 date: Mon, 20 Aug 2015 19:37:31 +0100
 categories: [debian, bt]
----
+--- 
 
 _This is actually the second post? But it's the first?_
 
@@ -180,7 +180,7 @@ Debian's `init` must be run with PID 1. The boot process of OpenWRT is simple
 1. _(device-specific stuff happens)_
 2. `/etc/preinit` is launched with PID 1
 3. `/etc/preinit` `exec`s `/sbin/init`
-4. `/sbin/init` `exec`s `/sbin/procd` - [OpenWRT's new all-singing all-dancing 
+4. `/sbin/init` `exec`s `/sbin/procd` --- [OpenWRT's new all-singing all-dancing 
 everything-replacement init system](http://wiki.openwrt.org/doc/techref/procd)
 5. _(stuff happens)_
 6. `/etc/preinit` launched as a child of `procd`
@@ -292,17 +292,17 @@ This is the hardest part yet.
 reboot
 ```
 
-## Troubleshooting - aka RTFL (the last one stands for logs)
+## Troubleshooting --- aka RTFL (the last one stands for logs)
 
 If it boots into OpenWRT, then it couldn't find the memory stick or `/sbin/init` 
 on it. Check you got `$USB` right, add some debugging into `/etc/debian_boot` 
-(such as `ls /dev` or `df` or `mount` - be creative!) For really slow memory 
+(such as `ls /dev` or `df` or `mount` --- be creative!) For really slow memory 
 sticks, if the _Upgrading_ LED fails to light, increase `$WAIT` to 10 or 15 then 
 hop on to Amazon and buy yourself a new one :wink:
 
 If you followed this tutorial you have many many logs for you to read. Where? 
 Firstly there is `/debian.log` on the NAND if the _Power_ LED fails to light 
-(after a **REASONABLE** amount of time - don't be impatient!). Before unplugging 
+(after a **REASONABLE** amount of time --- don't be impatient!). Before unplugging 
 the USB drive, try `ping`ing the router, it may be still booting!
 
 If that doesn't tell you anything, howsa about some of them Debian logs? You can 

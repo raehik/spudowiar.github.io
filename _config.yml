@@ -33,7 +33,10 @@ baseurl: ""
 # contact information {{{
 email: spudowiar@outlook.com
 twitter_username: spudowiar
+
 github_username:  spudowiar
+github_repo: spudowiar.github.io
+github_branch: jekyll
 # }}}
 
 # plugins {{{
@@ -42,6 +45,9 @@ redcarpet:
     extensions:
         - no_intra_emphasis
         - smart
+        - strikethrough
+    pygments:
+        linenos: table
 
 highlighter: pygments
 
@@ -53,17 +59,17 @@ gems:
 theme:
     # main {{{
     fonts: '"Source Sans Pro", sans-serif'
-    font-size: 16px
+    font-size: 17px
     monospace-fonts: '"Source Code Pro", monospace'
     content-padding: 2em 1em 2em 1em
     content-padding-vertical: 2em 1em 2em 3em
-    content-max-width: 64em
+    content-max-width: 53em
     # }}}
 
     # theme {{{
     theme-color: "#181818"
     theme-text-color: "#d8d8d8"
-    theme-color-accent: "#585858"
+    theme-color-accent: "#a1b56c"
     # }}}
 
     # title {{{
@@ -72,9 +78,9 @@ theme:
     # }}}
 
     # navigation {{{
-    navigation-width: 20em
+    navigation-width: 19em
     navigation-padding-left: 1em
-    navigation-padding-right: 2em
+    navigation-padding-right: 1.75em
     navigation-padding-anchor: 2em
     navigation-max-width: 32%
     navigation-side: left
