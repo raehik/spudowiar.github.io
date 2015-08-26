@@ -53,12 +53,12 @@ class Redcarpet::Render::HTML
             :Google => lambda { |query| "http://google.com/?q=#{CGI.escape query}" },
             :Wikipedia => lambda { |topic| "https://wikipedia.org/wiki/#{CGI.escape(topic).gsub "+", "%20"}" },
 
-            :source => lambda { |path| shortlinks[:GitHub]["./#{@config["github_repo"]}", @config["github_branch"], path] },
+            :source => lambda { |path| shortlinks[:GitHub]["./#{@config["github"]["repository"]}", @config["github"]["branch"], path] },
             :repo => lambda { shortlinks[:source][nil] },
 
             :GitHub => lambda { |repo, branch=nil, path=nil|
-                repo.sub! /^\./, @config["github_username"]
-                if branch
+                repo.sub! /^\./, @config["github"]["owner"]
+                if branch then
                     "https://github.com/#{repo}/tree/#{branch}/#{path}"
                 else
                     "https://github.com/#{repo}"
@@ -66,18 +66,18 @@ class Redcarpet::Render::HTML
             },
 
             :phpBB => lambda { |url, params|
-                if url !~ /^.*:\/\//
+                if url !~ /^.*:\/\// then
                     url.prepend "http://"
                 end
                 "#{url}/viewtopic.php?#{params}"
             }
         }
 
-        if link && link.start_with?(SHORTLINK_IDENTIFIER)
+        if link && link.start_with?(SHORTLINK_IDENTIFIER) then
             args = "#{link.sub SHORTLINK_IDENTIFIER, ""} \"#{title}\"".split /\s(?=(?:[^"]|"[^"]*")*$)/
             shortlink = args.shift.to_sym
 
-            if args.length >= 2 && args[-2].end_with?(",")
+            if args.length >= 2 && args[-2].end_with?(",") then
                 title = args.pop
                 args[-1].sub! /,$/, ""
             else
@@ -89,13 +89,13 @@ class Redcarpet::Render::HTML
             end.delete_if &:blank?
 
             function = shortlinks[shortlink]
-            if function
+            if function then
                 arity = function.arity
-                if arity < 0
+                if arity < 0 then
                     arity = -arity - 1
                 end
 
-                if args.length < arity
+                if args.length < arity then
                     args.unshift content
                 end
                 link = function[*args]
@@ -106,7 +106,7 @@ class Redcarpet::Render::HTML
 
         anchor = "<a href=\"#{CGI.escapeHTML link}"
 
-        if title
+        if title then
             anchor << "\" title=\"#{CGI.escapeHTML title}"
         end
 

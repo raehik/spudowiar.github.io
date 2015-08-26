@@ -1,53 +1,9 @@
+---
+---
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:400,500,300,600,700' rel='stylesheet' type='text/css'/>
-        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
-
-        <title>{{ site.title_prefix }}{{ page.title | fallback: site.title }}</title>
-
-        <script>
-        if (location.hostname.split(".").slice(-2).join(".") == "github.io" && location.protocol != "https:") {
-            location.protocol = "https";
-        }
-        </script>
-
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" />
-
-        <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | sub: '/index.html$', '/' }}" />
-        <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}" />
-
-        {% include analytics.html %}
-    </head>
+    <head>{% include head.html %}</head>
     <body>
-        <div id="navigation">
-            <div class="container">
-                <h1 class="site-title">
-                    <a href="{{ site.baseurl }}/">
-                        {% if site.theme.site-title-prompt %}<span class="prompt">></span>{% endif %}
-                        {{ site.title }}
-                    </a>
-                </h1>
-                <h2 class="site-description accent">
-                    <a href="{{ site.baseurl }}/">{{ site.tagline }}</a>
-                </h2>
-                <ul class="social-list">
-                    {% if site.github_username %}
-                    <li><a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fa fa-github"></i>&nbsp; {{ site.github_username }}</a></li>
-                    {% endif %}
-                    {% if site.twitter_username %}
-                    <li><a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fa fa-twitter"></i>&nbsp; {{ site.twitter_username }}</a></li>
-                    {% endif %}
-                </ul>
-                <p>Generated on <time datetime="{{ site.time }}">{{ site.time | date: "%b %-d, %Y at %I:%M %p" }}</time></p>
-            </div>
-        </div>
-        <div id="content">
-            {{ content }}
-        </div>
+        {% include theme.html %}
     </body>
 </html>

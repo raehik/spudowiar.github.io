@@ -1,2 +1,12 @@
 ---
 ---
+
+{% for category in site.theme %}
+    {% for pair in category[1] %}
+        ${{ category[0] }}-{{ pair[0] | replace: "_", "-" }}: "{{ pair[1] }}";
+    {% endfor %}
+{% endfor %}
+
+@import "reset";
+
+@import "gems/jemoji";

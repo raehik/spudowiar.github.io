@@ -1,11 +1,13 @@
 ---
 layout: default
+stylesheet: post
 ---
-
-<div class="post">
-    <h1 class="post-title"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h1>
-    <span class="post-meta">
-        <time datetime="{{ page.date }}" title="{{ page.date | date: "%b %-d, %Y at %I:%M %p" }}">{{ page.date | date: "%b %-d, %Y" }}</time>
-    </span>
-    <div class="post-content">{{ content }}</div>
-</div>
+{% datefmt page.date %}
+<article>
+    <header>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}<a/></h1>
+        <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>
+    </header>
+    <div>{{ content }}</div>
+</article>
+{% enddatefmt %}

@@ -1,12 +1,13 @@
 ---
+stylesheet: index
 ---
-<ul class="post-list">
-    {% for post in site.posts %}
-    <li>
-        <span class="post-meta">
-            <time datetime="{{ post.date }}" title="{{ post.date | date: "%b %-d, %Y at %I:%M %p" }}">{{ post.date | date: "%b  %-d, %Y" }}</time>
-        </span>
-        <a href="{{ site.baseurl }}{{ post.url }}"><h2>{{ post.title }}</h2></a>
-    </li>
-    {% endfor %}
-</ul>
+{% for post in site.posts %}
+{% datefmt post.date %}
+<article>
+    <header>
+        <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>
+        <a href="{{ site.baseurl }}{{ post.url }}"><h1>{{ post.title }}</h1></a>
+    </header>
+</article>
+{% enddatefmt %}
+{% endfor %}

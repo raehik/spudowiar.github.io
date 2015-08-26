@@ -1,0 +1,25 @@
+{% datefmt site.time %}
+<header>
+    <div class="container">
+        <section>
+            <h1><a href="{{ site.baseurl }}/">
+                {% if theme.title.has_prompt %}
+                    <span class="prompt">$</span>
+                {% endif %}
+                {{ site.title }}
+            </a></h1>
+            <h2>{{ site.tagline }}</h1>
+        </section>
+        <nav class="social">
+            {% for website in site.social %}
+            <a href="{{ website[1].url }}">
+                <i class="fa fa-{{ website[1].fontawesome | fallback: website[0] }}"></i>
+                &nbsp; {{ website[1].user }}
+            </a>
+            {% endfor %}
+        </nav>
+        <h4>Generated on <time datetime="{{date_full}}">{{date_long}}</time></h4>
+    </div>
+</header>
+<main role="main">{{ content }}</main>
+{% enddatefmt %}

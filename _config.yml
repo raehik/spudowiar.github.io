@@ -1,15 +1,13 @@
-# site information {{{
+# General {{{
 title: cat life > /dev/urandom
 description: Blog about computing, programming and stuff
 tagline: "# Saleem Rashid"
-keep_files:
-    - .nojekyll
 # }}}
 
-# configuration {{{
-title_prefix: "spudowiar: "
-permalink: pretty
-
+# Configuration {{{
+prefix: "spudowiar: "
+keep_files:
+    - .nojekyll
 defaults:
     - scope:
         type: "posts"
@@ -19,6 +17,7 @@ defaults:
         type: "drafts"
       values:
         layout: "post"
+        draft: true
     - scope:
         path: ""
       values:
@@ -28,19 +27,30 @@ defaults:
 # URL {{{
 url: "https://spudowiar.github.io"
 baseurl: ""
+permalink: pretty
 # }}}
 
-# contact information {{{
+# Contact Information {{{
 email: spudowiar@outlook.com
 twitter_username: spudowiar
 
-github_username:  spudowiar
-github_repo: spudowiar.github.io
-github_branch: jekyll
+github:
+    owner: spudowiar
+    repository: spudowiar.github.io
+    branch: jekyll
+
+social:
+    github:
+        user: spudowiar
+        url: https://github.com/spudowiar
+    twitter:
+        user: spudowiar
+        url: https://twitter.com/spudowiar
 # }}}
 
-# plugins {{{
+# Plugins {{{
 markdown: redcarpet
+highlighter: pygments
 redcarpet:
     extensions:
         - no_intra_emphasis
@@ -49,43 +59,28 @@ redcarpet:
     pygments:
         linenos: table
 
-highlighter: pygments
+sass:
+    style: compressed
+
 
 gems:
     - jemoji
 # }}}
 
-# theme {{{
+# Theme Configuration {{{
 theme:
-    # main {{{
-    fonts: '"Source Sans Pro", sans-serif'
-    font-size: 17px
-    monospace-fonts: '"Source Code Pro", monospace'
-    content-padding: 2em 1em 2em 1em
-    content-padding-vertical: 2em 1em 2em 3em
-    content-max-width: 53em
+
+    # Header {{{
+    title:
+        has_prompt: true
     # }}}
 
-    # theme {{{
-    theme-color: "#181818"
-    theme-text-color: "#d8d8d8"
-    theme-color-accent: "#a1b56c"
+    # Date Formats {{{
+    date:
+        human_readable: "%b %-d, %Y at %I:%M %p"
+        human_readable_short: "%b %-d, %Y"
     # }}}
 
-    # title {{{
-    site-title-monospace: true
-    site-title-prompt: true
-    # }}}
-
-    # navigation {{{
-    navigation-width: 19em
-    navigation-padding-left: 1em
-    navigation-padding-right: 1.75em
-    navigation-padding-anchor: 2em
-    navigation-max-width: 32%
-    navigation-side: left
-    navigation-anchor: bottom
-    # }}}
 # }}}
 
 # vim: fdm=marker

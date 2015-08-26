@@ -12,7 +12,7 @@ module Jekyll::Ternary
     # Fallback {{ first | fallback: second, third, etc. }} {{{
     def fallback(value, *fallbacks)
         while fallbacks.length > 0
-            if value.to_s.empty?
+            if value.to_s.empty? then
                 value = fallbacks.shift
             else
                 break
