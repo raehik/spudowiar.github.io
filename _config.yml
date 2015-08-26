@@ -1,6 +1,7 @@
 # site information {{{
 title: cat life > /dev/urandom
-description: "# Saleem Rashid"
+description: Blog about computing, programming and stuff
+tagline: "# Saleem Rashid"
 keep_files:
     - .nojekyll
 # }}}
