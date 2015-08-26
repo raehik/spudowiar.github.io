@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .highlight, code {
   font-family: "Source Code Pro", monospace;
-  font-size: 15px;
+  font-size: 93.75%;
   border-radius: 2px; }
 
 .highlight {
