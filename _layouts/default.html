@@ -10,6 +10,12 @@
 
         <title>{{ site.title_prefix }}{{ page.title | fallback: site.title }}</title>
 
+        <script>
+        if (location.hostname.split(".").slice(-2).join(".") == "github.io" && location.protocol != "https:") {
+            location.protocol = "http";
+        }
+        </script>
+
         <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" />
 
         <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | sub: '/index.html$', '/' }}" />
