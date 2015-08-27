@@ -1,8 +1,6 @@
 article {
     &.page header h1 {
-        h1 {
-            font-size: 2.75em;
-        }
+        font-size: 2.75em;
     }
 
     header {
@@ -32,7 +30,7 @@ article {
     line-height: 1.6;
     margin-bottom: 3em;
 
-    img {
+    img, .twitter-tweet {
         max-width: 100%;
         vertical-align: middle;
     }

@@ -26,7 +26,7 @@ end
 # }}}
 
 # 'canonical' tag {{{
-class Jekyll::Tags::CanonicalTag < Liquid::Tag
+class Jekyll::Tags::Canonical < Liquid::Tag
     def initialize(tag, markup, tokens)
         @url = markup if !markup.empty?
         super
@@ -38,7 +38,7 @@ class Jekyll::Tags::CanonicalTag < Liquid::Tag
     end
 end
 
-Liquid::Template.register_tag 'canonical', Jekyll::Tags::CanonicalTag
+Liquid::Template.register_tag 'canonical', Jekyll::Tags::Canonical
 # }}}
 
 # 'sass_box' filter {{{
@@ -48,7 +48,7 @@ module Jekyll::SassFilters
     end
 
     def sass_box(hash, property="")
-        property &&= property + "-"
+        property &&= "#{property}-"
         css = ""
         ["top", "right", "bottom", "left"].each do |side|
             css << "#{property}#{side}: #{sass_box_get(hash, side)};\n"
