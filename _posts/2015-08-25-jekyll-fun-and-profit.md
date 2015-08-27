@@ -46,3 +46,6 @@ That's the thing about Jekyll. It's so customisable. And `customisable ==
 awesome`.
 
 _**NOTE:** I had absolutely no Ruby experience before starting this blog :wink:_
+
+_**NOTE:** After finishing this post, I immediately proceeded to rewrite all the 
+SCSS as it was not clean enough for me :expressionless:_
