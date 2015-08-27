@@ -34,6 +34,7 @@ class Jekyll::Converters::Markdown::RedcarpetParser
         end
 
         def block_code(code, lang)
+            return nil if code.strip.empty?
             lang &&= lang.split.first
             lang ||= ""
             lang, filename, url = CSV.parse(lang)[0]

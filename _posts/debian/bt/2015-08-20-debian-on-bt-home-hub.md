@@ -143,13 +143,11 @@ Once you are inside the `rootfs`, you can configure the system and install
 packages. Make sure to setup the Ethernet switch and install and configure 
 `openssh-server`
 
-```sh
-cat << EOF >> /etc/network/interfaces
+```,/etc/network/interfaces
 auto eth0
 iface eth0 inet static
     address 192.168.1.1
     netmask 255.255.255.0
-EOF
 ```
 
 To ensure `systemd-udevd` can access the modules, run
@@ -158,13 +156,11 @@ To ensure `systemd-udevd` can access the modules, run
 ln -s ../openwrt/lib/modules /lib/
 ```
 
-And enable the swap in `/etc/fstab`
+And enable the swap
 
-```sh
-cat << EOF >> /etc/fstab
+```,/etc/fstab
 # <file system>                 <mount point>   <type> <options> <dump> <pass>
 /dev/sda1                       none            swap    sw       0      0
-EOF
 ```
 
 Also, you could downgrade to `SysVinit` (tested, working) at this stage and a 
@@ -209,13 +205,13 @@ The anatomy of `/etc/debian_boot` is also very simple
 To inject our code into `/etc/preinit` we must find the line which corresponds 
 to step 3 in the OpenWRT boot process (shown above, in the first one)
 
-```sh
+```sh,/etc/preinit
 [ -z "$PREINIT" ] && exec /sbin/init
 ```
 
 This line should be the first line. Above this line we insert
 
-```sh
+```sh,/etc/preinit
 [ $$ -eq 1 ] && . /etc/debian_boot >>/debian.log 2>&1
 ```
 

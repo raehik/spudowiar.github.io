@@ -1,23 +1,19 @@
 figure.code {
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
-    overflow: hidden;
+    @extend .syntax;
 
-    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
-       -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
-            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+
+    -webkit-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
+       -moz-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
 
     .highlight {
-        @extend .syntax;
+        margin-top: 1em;
         overflow-x: auto;
 
-        -webkit-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
-           -moz-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
-                box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.4);
-
         .lineno {
-            @extend .c;
 
             width: 3.8em;
             text-align: right;
@@ -26,26 +22,24 @@ figure.code {
         }
 
         pre {
+            margin-top: 1em;
+            margin-bottom: 1em;
             display: inline-block;
             margin-right: 1em;
         }
     }
 
     figcaption {
+        @include monospace;
+        font-size: 85%;
+        font-weight: 400;
+        padding-top: 0.75em;
+        margin-bottom: -2em;
         text-align: center;
-        padding: 0.25em;
-        background: -moz-linear-gradient(center top, #EEE, #DDD);
-
-        &, * {
-            font-weight: 400;
-        }
-
-        a {
-            color: #007;
-        }
     }
 
     figcaption, .lineno {
+        @extend .c;
         -webkit-touch-callout: none;
           -webkit-user-select: none;
            -khtml-user-select: none;
@@ -59,7 +53,7 @@ code {
     border: 1px solid #DDDDDD;
     background: #EEEEEE;
     padding: 1px 5px;
-    font-size: 93.75%;
+    font-size: 85%;
 
     -webkit-border-radius: 3px;
        -moz-border-radius: 3px;
