@@ -1,5 +1,5 @@
-{% datefmt site.time %}
-<header>
+{% datefmt {{ site.time }} %}
+<header class="page">
     <div class="container">
         <section>
             <h1><a href="{{ site.baseurl }}/">
@@ -21,5 +21,5 @@
         <h4>Generated on <time datetime="{{date_full}}">{{date_long}}</time></h4>
     </div>
 </header>
-<main role="main">{{ content }}</main>
+<main role="main" class="page">{{ content }}</main>
 {% enddatefmt %}

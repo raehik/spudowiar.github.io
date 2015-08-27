@@ -2,13 +2,14 @@
 title: Debian on a BT Home Hub
 date: Mon, 20 Aug 2015 19:37:31 +0100
 categories: [debian, bt]
+description: |
+    Installing a proper Linux distro on the BT Home Hub 2.0 Type B
 --- 
+This is actually the second post? But it's the first?
 
-_This is actually the second post? But it's the first?_
-
-_Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 
+Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 
 Type B running OpenWRT. Access to the [netconsole](!phpBB "openwrt.ebilan.co.uk" 
-"f=11&t=6") is assumed, as is experience with Debian and Linux, in general._
+"f=11&t=6") is assumed, as is experience with Debian and Linux, in general.
 
 ![changing the time whilst doing `apt-get install`]({{ site.baseurl }}/assets/apt-get-time-change.png)
 

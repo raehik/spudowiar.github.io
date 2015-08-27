@@ -1,0 +1,47 @@
+html {
+    font-family: {{ theme.font.sans }};
+    font-weight: 300;
+}
+
+
+// Headers [[[
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin-top: 0.64em;
+    margin-bottom: 0.64em;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1em;
+}
+// ]]]
+
+// Basic elements [[[
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+i, em {
+    font-style: italic;
+}
+
+pre, code {
+    font-weight: 400;
+    @include monospace;
+}
+// ]]]
+
+// vim: fdm=marker foldmarker=[[[,]]]

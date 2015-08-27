@@ -2,11 +2,11 @@
 stylesheet: index
 ---
 {% for post in site.posts %}
-{% datefmt post.date %}
+{% datefmt {{ post.date }} %}
 <article>
     <header>
         <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>
-        <a href="{{ site.baseurl }}{{ post.url }}"><h1>{{ post.title }}</h1></a>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
     </header>
 </article>
 {% enddatefmt %}

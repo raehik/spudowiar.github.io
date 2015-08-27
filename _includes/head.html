@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:400,500,300,600,700" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
 
 <title>{{ site.prefix }}{{ page.title | fallback: site.title }}</title>
 
@@ -14,7 +15,7 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ page.stylesheet }}.css" />
 {% endif %}
 
-<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | sub: '/index.html$', '/' }}" />
+<link rel="canonical" href="{% canonical %}" />
 <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}" />
 
 {% include head/analytics.html %}

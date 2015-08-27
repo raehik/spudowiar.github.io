@@ -1,0 +1,13 @@
+article {
+    h1, h1 a {
+        color: {{ theme.header.background }};
+        margin-top: 0.2em;
+    }
+
+    h4 {
+        color: {{ theme.posts.meta.color }};
+        font-size: {{ theme.posts.meta.size }};
+    }
+
+    line-height: 1.6;
+}

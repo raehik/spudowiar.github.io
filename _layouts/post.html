@@ -2,7 +2,7 @@
 layout: default
 stylesheet: post
 ---
-{% datefmt page.date %}
+{% datefmt {{ page.date }} %}
 <article>
     <header>
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}<a/></h1>

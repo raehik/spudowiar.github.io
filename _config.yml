@@ -69,10 +69,37 @@ gems:
 
 # Theme Configuration {{{
 theme:
+    # Font {{{
+    font:
+        sans: '"Source Sans Pro", sans'
+        monospace: '"Source Code Pro", monospace'
+    # }}}
 
     # Header {{{
     title:
         has_prompt: true
+        monospace: true
+    header:
+        background: "#181818"
+        color: "#d8d8d8"
+        accent: "#585858"
+        horizontal:
+            padding:
+                all: 2em
+    # }}}
+
+    # Content {{{
+    content:
+        horizontal:
+            padding:
+                all: 2em
+    # }}}
+ 
+    # Posts {{{
+    posts:
+        meta:
+            color: "#808090"
+            size: 0.9em
     # }}}
 
     # Date Formats {{{
