@@ -1,7 +1,6 @@
 --- 
-title: Debian on a BT Home Hub
+title: "Debian on a BT Home Hub"
 date: Mon, 20 Aug 2015 19:37:31 +0100
-categories: [debian, bt]
 description: |
     A comprehensive guide on installing Debian Jessie on the BT Home Hub 2.0 
     Type B
@@ -223,9 +222,7 @@ This line should be the first line. Above this line we insert
 This means it only runs the first time (when PID is 1) and logs `stderr` and 
 `stdout` to `/debian.log` on the NAND
 
-Here is `/etc/debian_boot`
-
-```sh
+```sh,/etc/debian_boot
 #!/bin/sh
 USB="/dev/sda2"
 WAIT=5

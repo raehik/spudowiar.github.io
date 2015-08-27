@@ -1,14 +1,13 @@
 ---
 title: "Jekyll: blogging for fun and profit"
 date: Tue, 25 Aug 2015 18:48:57 +0100
-categories: [jekyll]
 description: |
     From nothing to blog in under a day
 ---
 
-Woot. Like I said, [this is a blog]({% post_url 2015-08-24-hello-world %}). And 
-this is the second post. But the third. And the second. But it's the third. And 
-this is a joke. And it's really unfunny now... :laughing:
+Woot. Like I said, [this is a blog]({% post_url jekyll/2015-08-24-hello-world %}).
+And this is the second post. But the third. And the second. But it's the third. 
+And this is a joke. And it's really unfunny now... :laughing:
 
 Anyway... before I even wrote the first (which turned out to be the second) 
 post, there was much work to be done.

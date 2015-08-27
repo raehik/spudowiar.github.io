@@ -63,7 +63,7 @@ if (location.hostname.split(".").slice(-2).join(".") == "github.io" && location.
             </a>
             
         </nav>
-        <h4>Generated on <time datetime="2015-08-27T15:25:02+01:00">Aug 27, 2015 at 03:25 PM</time></h4>
+        <h4>Generated on <time datetime="2015-08-27T17:18:37+01:00">Aug 27, 2015 at 05:18 PM</time></h4>
     </div>
 </header>
 <main role="main" class="page">
@@ -98,55 +98,55 @@ that pressing <code>/</code> pulls up a search box for configuration options.</e
 <h1>OpenWRT</h1>
 
 <h2>Getting the OpenWRT source code</h2>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>git clone git://git.openwrt.org/openwrt.git
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>git clone git://git.openwrt.org/openwrt.git
 <span class="lineno">2 </span><span class="nb">cd </span>openwrt
 <span class="lineno">3 </span>./scripts/feeds update -a
 <span class="lineno">4 </span>./scripts/feeds install -a
-</code></pre></div>
+</code></pre></div></figure>
 <h2>Configuring OpenWRT</h2>
 
 <p>Start <code>menuconfig</code> and select the target</p>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_TARGET_lantiq=y
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_TARGET_lantiq=y
 <span class="lineno">2 </span>CONFIG_TARGET_lantiq_xway=y
 <span class="lineno">3 </span>CONFIG_TARGET_lantiq_xway_BTHOMEHUBV2B=y
-</code></pre></div>
+</code></pre></div></figure>
 <p>Load the defaults for the target</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>make defconfig
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>make defconfig
+</code></pre></div></figure>
 <p>Start <code>menuconfig</code> again and configure the following options or append these to 
 <code>.config</code> and re-run <code>make defconfig</code></p>
 
 <ul>
 <li>For USB support</li>
 </ul>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_BLK_DEV_BSG=y
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_BLK_DEV_BSG=y
 <span class="lineno">2 </span>CONFIG_PACKAGE_kmod-usb2=y
 <span class="lineno">3 </span>CONFIG_PACKAGE_kmod-usb-storage=y
 <span class="lineno">4 </span>CONFIG_PACKAGE_kmod-usb-storage-extras=y
-</code></pre></div>
+</code></pre></div></figure>
 <ul>
 <li>Populates <code>/dev</code> during early boot and a requirement of Debian</li>
 </ul>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_DEVTMPFS=y
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_DEVTMPFS=y
 <span class="lineno">2 </span>CONFIG_KERNEL_DEVTMPFS_MOUNT=y
-</code></pre></div>
+</code></pre></div></figure>
 <ul>
 <li>For <code>ext4</code> support (change accordingly)</li>
 </ul>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_PACKAGE_kmod-fs-ext4=y
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_PACKAGE_kmod-fs-ext4=y
+</code></pre></div></figure>
 <ul>
 <li>For U-Boot configuration</li>
 </ul>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_PACKAGE_uboot-envtools=y
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_PACKAGE_uboot-envtools=y
 <span class="lineno">2 </span>CONFIG_UBOOT_ENVTOOLS_UBI=y
-</code></pre></div>
+</code></pre></div></figure>
 <ul>
 <li>For <code>systemd</code> support (not required if using <code>SysVinit</code>)</li>
 </ul>
-<div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_CGROUPS=y
+<figure class="code"><div class="highlight"><pre><code class="language-kconfig" data-lang="kconfig"><span class="lineno">1 </span>CONFIG_KERNEL_CGROUPS=y
 <span class="lineno">2 </span>CONFIG_KERNEL_FHANDLE=y
-</code></pre></div>
+</code></pre></div></figure>
 <h2>Configuring the kernel</h2>
 
 <ul>
@@ -161,8 +161,8 @@ section) override those in the kernel&rsquo;s config. At the time of writing, th
 FPU emulator is not available as an OpenWRT config option.</em></p>
 
 <h2>Building OpenWRT</h2>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>make
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>make
+</code></pre></div></figure>
 <h2>Flashing OpenWRT</h2>
 
 <p>The <code>uImage</code> kernel and initramfs can be found in <code>bin/lantiq</code> and the 
@@ -179,39 +179,39 @@ be partitioned with swap and a partition of the chosen filesystem (in this case,
 (<code>/dev/sda2</code>).</p>
 
 <p>To build the <code>rootfs</code></p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>debootstrap --arch<span class="o">=</span>mips --foreign jessie debian http://ftp.uk.debian.org/debian/
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>debootstrap --arch<span class="o">=</span>mips --foreign jessie debian http://ftp.uk.debian.org/debian/
 <span class="lineno">2 </span>cp /usr/bin/qemu-mips-static debian/usr/bin
 <span class="lineno">3 </span>chroot debian /debootstrap/debootstrap --second-stage
-</code></pre></div>
+</code></pre></div></figure>
 <p>On a <code>systemd</code>-based host, you can enter the <code>rootfs</code> using <code>systemd-nspawn</code></p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>systemd-nspawn -D debian -n
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>systemd-nspawn -D debian -n
+</code></pre></div></figure>
 <p>Otherwise use <code>chroot</code> and mount the pseudo-filesystems</p>
 
 <p>Once you are inside the <code>rootfs</code>, you can configure the system and install 
 packages. Make sure to setup the Ethernet switch and install and configure 
 <code>openssh-server</code></p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/network/interfaces</span>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/network/interfaces</span>
 <span class="lineno">2 </span><span class="s">auto eth0</span>
 <span class="lineno">3 </span><span class="s">iface eth0 inet static</span>
 <span class="lineno">4 </span><span class="s">    address 192.168.1.1</span>
 <span class="lineno">5 </span><span class="s">    netmask 255.255.255.0</span>
 <span class="lineno">6 </span><span class="s">EOF</span>
-</code></pre></div>
+</code></pre></div></figure>
 <p>To ensure <code>systemd-udevd</code> can access the modules, run</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>ln -s ../openwrt/lib/modules /lib/
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>ln -s ../openwrt/lib/modules /lib/
+</code></pre></div></figure>
 <p>And enable the swap in <code>/etc/fstab</code></p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/fstab</span>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>cat <span class="s">&lt;&lt; EOF &gt;&gt; /etc/fstab</span>
 <span class="lineno">2 </span><span class="s"># &lt;file system&gt;                 &lt;mount point&gt;   &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</span>
 <span class="lineno">3 </span><span class="s">/dev/sda1                       none            swap    sw       0      0</span>
 <span class="lineno">4 </span><span class="s">EOF</span>
-</code></pre></div>
+</code></pre></div></figure>
 <p>Also, you could downgrade to <code>SysVinit</code> (tested, working) at this stage and a 
 useful trick would be to light the <em>Power</em> LED on boot (<em><strong>NOTE</strong>: there is a 
 red one!</em>)</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>ls /sys/class/leds/
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>ls /sys/class/leds/
+</code></pre></div></figure>
 <h1>Installation</h1>
 
 <p>Debian&rsquo;s <code>init</code> must be run with PID 1. The boot process of OpenWRT is simple</p>
@@ -251,16 +251,14 @@ boot Debian. Instead we <code>source</code> it so it runs in the same shell.</p>
 
 <p>To inject our code into <code>/etc/preinit</code> we must find the line which corresponds 
 to step 3 in the OpenWRT boot process (shown above, in the first one)</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span><span class="o">[</span> -z <span class="s2">&quot;$PREINIT&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> /sbin/init
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span><span class="o">[</span> -z <span class="s2">&quot;$PREINIT&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> /sbin/init
+</code></pre></div></figure>
 <p>This line should be the first line. Above this line we insert</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span><span class="o">[</span> <span class="nv">$$</span> -eq <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> . /etc/debian_boot &gt;&gt;/debian.log 2&gt;<span class="p">&amp;</span>1
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span><span class="o">[</span> <span class="nv">$$</span> -eq <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> . /etc/debian_boot &gt;&gt;/debian.log 2&gt;<span class="p">&amp;</span>1
+</code></pre></div></figure>
 <p>This means it only runs the first time (when PID is 1) and logs <code>stderr</code> and 
 <code>stdout</code> to <code>/debian.log</code> on the NAND</p>
-
-<p>Here is <code>/etc/debian_boot</code></p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno"> 1 </span><span class="c">#!/bin/sh</span>
+<figure class="code"><figcaption>/etc/debian_boot</figcaption><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno"> 1 </span><span class="c">#!/bin/sh</span>
 <span class="lineno"> 2 </span><span class="nv">USB</span><span class="o">=</span><span class="s2">&quot;/dev/sda2&quot;</span>
 <span class="lineno"> 3 </span><span class="nv">WAIT</span><span class="o">=</span>5
 <span class="lineno"> 4 </span>
@@ -297,7 +295,7 @@ to step 3 in the OpenWRT boot process (shown above, in the first one)</p>
 <span class="lineno">35 </span>umount /sys
 <span class="lineno">36 </span>umount /proc
 <span class="lineno">37 </span><span class="nb">echo</span> <span class="s2">&quot;Falling back to OpenWRT.&quot;</span>
-</code></pre></div>
+</code></pre></div></figure>
 <p>When reading this script, remember that the output is logged (e.g. <code>date</code> is for 
 logging purposes only and won&rsquo;t affect the bootup, ditto for the <code>echo</code>s). This 
 script  mounts <code>/proc</code> and <code>/sys</code>, loads required modules (<code>jdb2</code> is a 
@@ -321,8 +319,8 @@ Can&rsquo;t hurt, eh?</p>
 <h1>Booting</h1>
 
 <p>This is the hardest part yet.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>reboot
-</code></pre></div>
+<figure class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="lineno">1 </span>reboot
+</code></pre></div></figure>
 <h1>Troubleshooting &mdash; aka RTFL (the last one stands for logs)</h1>
 
 <p>If it boots into OpenWRT, then it couldn&rsquo;t find the memory stick or <code>/sbin/init</code> 

@@ -1,7 +1,6 @@
 ---
-title: Hello World
+title: "Hello World"
 date: Mon, 24 Aug 2015 16:44:00 +0100
-categories: [jekyll]
 description: |
     `ruby -e 'puts "Hello World"'`
 ---
