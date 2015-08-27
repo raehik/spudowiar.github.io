@@ -56,6 +56,9 @@ redcarpet:
         - no_intra_emphasis
         - smart
         - strikethrough
+    custom:
+        - shortlinks
+        - pygments
     pygments:
         linenos: inline
 

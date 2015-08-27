@@ -6,7 +6,7 @@ stylesheet: post
 <article class="page">
     <header>
         <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>
-        <h1><a href="{% canonical %}">{{ page.title }}</a></h1>
+        <h1><a href="{% self %}">{{ page.title }}</a></h1>
         <h2>{{ page.description | fallback: "" | markdownify }}</h2>
     </header>
     <div>{{ content }}</div>

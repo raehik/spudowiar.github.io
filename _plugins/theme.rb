@@ -40,6 +40,21 @@ end
 
 Liquid::Template.register_tag 'canonical', Jekyll::Tags::Canonical
 # }}}
+# 'self' tag {{{
+class Jekyll::Tags::Self < Liquid::Tag
+    def initialize(tag, markup, tokens)
+        @url = markup if !markup.empty?
+        super
+    end
+
+    def render(context)
+        @url ||= context["page"]["url"]
+        "#{context["site"]["baseurl"]}#{@url.sub /\/index.html?$/i, "/"}"
+    end
+end
+
+Liquid::Template.register_tag 'self', Jekyll::Tags::Self
+# }}}
 
 # 'sass_box' filter {{{
 module Jekyll::SassFilters
@@ -59,3 +74,5 @@ end
 
 Liquid::Template.register_filter Jekyll::SassFilters
 # }}}
+
+# vim: fdm=marker
