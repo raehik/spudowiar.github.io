@@ -1,12 +1,13 @@
+// horizontal and common styles [[[
 main {
-    {{ theme.content.horizontal.padding | sass_padding }}
+    {{ theme.content.horizontal.padding | sass_box: "padding" }}
 }
 
 header.page {
     background: {{ theme.header.background }};
     text-align: center;
 
-    {{ theme.header.horizontal.padding | sass_padding }}
+    {{ theme.header.horizontal.padding | sass_box: "padding" }}
 
     &, * {
         color: {{ theme.header.color }};
@@ -20,7 +21,11 @@ header.page {
         font-size: 1.15em;
     }
 
-    .prompt, h2 {
+    h4 {
+        font-size: 1em;
+    }
+
+    .prompt, h2, h4, h4 * {
         color: {{ theme.header.accent }};
     }
 
@@ -42,3 +47,38 @@ header.page {
         font-weight: 400;
     }
 }
+// ]]]
+
+// vertical [[[
+$header-width: {{ theme.header.vertical.width }};
+$vertical-min-width-em: $header-width * 100% / {{ theme.header.vertical.max_width }};
+$vertical-min-width: $vertical-min-width-em / 1em;
+$vertical-min-width: $vertical-min-width * {{ theme.font.size }};
+
+@media screen and (min-width: $vertical-min-width) {
+    main {
+        {{ theme.content.vertical.padding | sass_box: "padding" }}
+        margin-{{ theme.header.vertical.side }}: $header-width;
+        max-width: {{ theme.content.vertical.max_width }};
+    }
+
+    header.page {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        {{ theme.header.vertical.side }}: 0px;
+        width: $header-width;
+
+        text-align: {{ theme.header.vertical.side }};
+        padding: 0px;
+
+        .container {
+            position: absolute;
+            {{ theme.header.vertical.anchor }}: 0px;
+            {{ theme.header.vertical.padding | sass_box: "margin" }}
+        }
+    }
+}
+// ]]]
+
+// vim: fdm=marker foldmarker=[[[,]]]

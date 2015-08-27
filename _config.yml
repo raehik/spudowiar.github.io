@@ -73,6 +73,7 @@ theme:
     font:
         sans: '"Source Sans Pro", sans'
         monospace: '"Source Code Pro", monospace'
+        size: 16px
     # }}}
 
     # Header {{{
@@ -86,6 +87,15 @@ theme:
         horizontal:
             padding:
                 all: 2em
+        vertical:
+            padding:
+                all: 2em
+                left: 1.5em;
+                right: 2.5em;
+            width: 24em
+            max_width: 35%
+            side: left
+            anchor: bottom
     # }}}
 
     # Content {{{
@@ -93,6 +103,11 @@ theme:
         horizontal:
             padding:
                 all: 2em
+        vertical:
+            padding:
+                all: 2em
+                left: 4em
+            max_width: 60em;
     # }}}
  
     # Posts {{{

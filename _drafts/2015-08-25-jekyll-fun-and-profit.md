@@ -2,6 +2,8 @@
 title: "Jekyll: blogging for fun and profit"
 date: Tue, 25 Aug 2015 18:48:57 +0100
 categories: [jekyll]
+description: |
+    From nothing to blog in under a day
 ---
 
 Woot. Like I said, [this is a blog]({% post_url 2015-08-24-hello-world %}). And 

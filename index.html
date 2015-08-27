@@ -1,5 +1,4 @@
 ---
-stylesheet: index
 ---
 {% for post in site.posts %}
 {% datefmt {{ post.date }} %}
@@ -7,6 +6,7 @@ stylesheet: index
     <header>
         <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <h2>{{ post.description | fallback: "" | markdownify }}</h2>
     </header>
 </article>
 {% enddatefmt %}

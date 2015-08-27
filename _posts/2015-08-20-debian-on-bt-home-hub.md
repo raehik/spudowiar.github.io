@@ -3,8 +3,10 @@ title: Debian on a BT Home Hub
 date: Mon, 20 Aug 2015 19:37:31 +0100
 categories: [debian, bt]
 description: |
-    Installing a proper Linux distro on the BT Home Hub 2.0 Type B
---- 
+    A comprehensive guide on installing Debian Jessie on the BT Home Hub 2.0 
+    Type B
+---
+
 This is actually the second post? But it's the first?
 
 Anyway... This tutorial shows you how to install Debian 8 on a BT Home Hub 2.0 
@@ -18,15 +20,15 @@ Why? I have a BT Home Hub, a memory stick and way too much free time!
 _**NOTE:** When configuring software using `menuconfig` it may be useful to know 
 that pressing `/` pulls up a search box for configuration options._
 
-## Outcome
+# Outcome
 
 It works. Really? Yep.
 
 Debian 8.1 and OpenWRT `r46693` with `SysVinit` or `systemd`
 
-## OpenWRT
+# OpenWRT
 
-### Getting the OpenWRT source code
+## Getting the OpenWRT source code
 
 ```sh
 git clone git://git.openwrt.org/openwrt.git
@@ -35,7 +37,7 @@ cd openwrt
 ./scripts/feeds install -a
 ```
 
-### Configuring OpenWRT
+## Configuring OpenWRT
 
 Start `menuconfig` and select the target
 
@@ -90,7 +92,7 @@ CONFIG_KERNEL_CGROUPS=y
 CONFIG_KERNEL_FHANDLE=y
 ```
 
-### Configuring the kernel
+## Configuring the kernel
 
 * From `menuconfig` disable `CONFIG_SOFT_FLOAT`
 * Start `make kernel_menuconfig` and enable `CONFIG_MIPS_FPU_EMULATOR`
@@ -101,20 +103,20 @@ config, options available in OpenWRT's config (such as those in the previous
 section) override those in the kernel's config. At the time of writing, the MIPS 
 FPU emulator is not available as an OpenWRT config option._
 
-### Building OpenWRT
+## Building OpenWRT
 
 ```sh
 make
 ```
 
-### Flashing OpenWRT
+## Flashing OpenWRT
 
 The `uImage` kernel and initramfs can be found in `bin/lantiq` and the 
 `ubinized` images can be found in `build_dir/target-*/linux-lantiq_xway`. Make 
 sure to flash the `ubifs` image instead of the `squashfs` image as the overlay 
 is not mounted early enough in the boot process.
 
-## Debian
+# Debian
 
 The simplest way to install Debian is to use `debootstrap` and 
 `qemu-user-static` then copy the folder to the USB drive. The USB drive should 
@@ -174,7 +176,7 @@ red one!_)
 ls /sys/class/leds/
 ```
 
-## Installation
+# Installation
 
 Debian's `init` must be run with PID 1. The boot process of OpenWRT is simple
 
@@ -285,7 +287,7 @@ Can't hurt, eh?
 
 Before booting, check that you can mount the USB drive from OpenWRT.
 
-## Booting
+# Booting
 
 This is the hardest part yet.
 
@@ -293,7 +295,7 @@ This is the hardest part yet.
 reboot
 ```
 
-## Troubleshooting --- aka RTFL (the last one stands for logs)
+# Troubleshooting --- aka RTFL (the last one stands for logs)
 
 If it boots into OpenWRT, then it couldn't find the memory stick or `/sbin/init` 
 on it. Check you got `$USB` right, add some debugging into `/etc/debian_boot` 

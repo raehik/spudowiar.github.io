@@ -16,6 +16,6 @@
 {% endif %}
 
 <link rel="canonical" href="{% canonical %}" />
-<meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}" />
+<meta name="description" content="{{ page.description | fallback: site.description | markdownify | strip_html | strip_newlines | truncate: 160 }}" />
 
 {% include head/analytics.html %}

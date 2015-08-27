@@ -23,7 +23,7 @@ if (location.hostname.split(".").slice(-2).join(".") == "github.io" && location.
 
 
 <link rel="canonical" href="https://spudowiar.github.io/debian/bt/2015/08/20/debian-on-bt-home-hub/" />
-<meta name="description" content="Blog about computing, programming and stuff" />
+<meta name="description" content="A comprehensive guide on installing Debian Jessie on the BT Home Hub 2.0 Type B" />
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,14 +63,17 @@ if (location.hostname.split(".").slice(-2).join(".") == "github.io" && location.
             </a>
             
         </nav>
-        <h4>Generated on <time datetime="2015-08-27T11:42:20+01:00">Aug 27, 2015 at 11:42 AM</time></h4>
+        <h4>Generated on <time datetime="2015-08-27T13:15:47+01:00">Aug 27, 2015 at 01:15 PM</time></h4>
     </div>
 </header>
 <main role="main" class="page">
 <article>
     <header>
-        <h1><a href="">Debian on a BT Home Hub<a/></h1>
         <h4><time datetime="2015-08-20T19:37:31+01:00" title="Aug 20, 2015 at 07:37 PM">Aug 20, 2015</time></h4>
+        <h1><a href="">Debian on a BT Home Hub<a/></h1>
+        <h2><p>A comprehensive guide on installing Debian Jessie on the BT Home Hub 2.0 
+Type B</p>
+</h2>
     </header>
     <div><p>This is actually the second post? But it&rsquo;s the first?</p>
 
@@ -84,15 +87,15 @@ Type B running OpenWRT. Access to the <a href="http://openwrt.ebilan.co.uk/viewt
 <p><em><strong>NOTE:</strong> When configuring software using <code>menuconfig</code> it may be useful to know 
 that pressing <code>/</code> pulls up a search box for configuration options.</em></p>
 
-<h2>Outcome</h2>
+<h1>Outcome</h1>
 
 <p>It works. Really? Yep.</p>
 
 <p>Debian 8.1 and OpenWRT <code>r46693</code> with <code>SysVinit</code> or <code>systemd</code></p>
 
-<h2>OpenWRT</h2>
+<h1>OpenWRT</h1>
 
-<h3>Getting the OpenWRT source code</h3>
+<h2>Getting the OpenWRT source code</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-sh" data-lang="sh">1
 2
 3
@@ -102,7 +105,7 @@ that pressing <code>/</code> pulls up a search box for configuration options.</e
 ./scripts/feeds install -a
 </code></pre></div>
 </td></tr></table>
-<h3>Configuring OpenWRT</h3>
+<h2>Configuring OpenWRT</h2>
 
 <p>Start <code>menuconfig</code> and select the target</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-kconfig" data-lang="kconfig">1
@@ -161,7 +164,7 @@ CONFIG_UBOOT_ENVTOOLS_UBI=y
 CONFIG_KERNEL_FHANDLE=y
 </code></pre></div>
 </td></tr></table>
-<h3>Configuring the kernel</h3>
+<h2>Configuring the kernel</h2>
 
 <ul>
 <li>From <code>menuconfig</code> disable <code>CONFIG_SOFT_FLOAT</code></li>
@@ -174,18 +177,18 @@ config, options available in OpenWRT&rsquo;s config (such as those in the previo
 section) override those in the kernel&rsquo;s config. At the time of writing, the MIPS 
 FPU emulator is not available as an OpenWRT config option.</em></p>
 
-<h3>Building OpenWRT</h3>
+<h2>Building OpenWRT</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-sh" data-lang="sh">1</code></pre></div></td><td class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh">make
 </code></pre></div>
 </td></tr></table>
-<h3>Flashing OpenWRT</h3>
+<h2>Flashing OpenWRT</h2>
 
 <p>The <code>uImage</code> kernel and initramfs can be found in <code>bin/lantiq</code> and the 
 <code>ubinized</code> images can be found in <code>build_dir/target-*/linux-lantiq_xway</code>. Make 
 sure to flash the <code>ubifs</code> image instead of the <code>squashfs</code> image as the overlay 
 is not mounted early enough in the boot process.</p>
 
-<h2>Debian</h2>
+<h1>Debian</h1>
 
 <p>The simplest way to install Debian is to use <code>debootstrap</code> and 
 <code>qemu-user-static</code> then copy the folder to the USB drive. The USB drive should 
@@ -243,7 +246,7 @@ red one!</em>)</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-sh" data-lang="sh">1</code></pre></div></td><td class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh">ls /sys/class/leds/
 </code></pre></div>
 </td></tr></table>
-<h2>Installation</h2>
+<h1>Installation</h1>
 
 <p>Debian&rsquo;s <code>init</code> must be run with PID 1. The boot process of OpenWRT is simple</p>
 
@@ -391,13 +394,13 @@ Can&rsquo;t hurt, eh?</p>
 
 <p>Before booting, check that you can mount the USB drive from OpenWRT.</p>
 
-<h2>Booting</h2>
+<h1>Booting</h1>
 
 <p>This is the hardest part yet.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-sh" data-lang="sh">1</code></pre></div></td><td class="code"><div class="highlight"><pre><code class="language-sh" data-lang="sh">reboot
 </code></pre></div>
 </td></tr></table>
-<h2>Troubleshooting &mdash; aka RTFL (the last one stands for logs)</h2>
+<h1>Troubleshooting &mdash; aka RTFL (the last one stands for logs)</h1>
 
 <p>If it boots into OpenWRT, then it couldn&rsquo;t find the memory stick or <code>/sbin/init</code> 
 on it. Check you got <code>$USB</code> right, add some debugging into <code>/etc/debian_boot</code> 

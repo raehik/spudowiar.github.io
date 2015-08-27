@@ -41,18 +41,17 @@ end
 Liquid::Template.register_tag 'canonical', Jekyll::Tags::CanonicalTag
 # }}}
 
-# 'sass_padding' filter {{{
+# 'sass_box' filter {{{
 module Jekyll::SassFilters
-    def sass_padding(hash)
-        hash = hash.clone()
-        css = ""
-        if hash.has_key? "all" then
-            css << "padding: #{hash["all"]};\n"
-            hash.delete "all"
-        end
+    def sass_box_get(hash, side)
+        hash.has_key?(side) ? hash[side] : hash["all"]
+    end
 
-        hash.each do |key, value|
-            css << "padding-#{key}: #{value};\n"
+    def sass_box(hash, property="")
+        property &&= property + "-"
+        css = ""
+        ["top", "right", "bottom", "left"].each do |side|
+            css << "#{property}#{side}: #{sass_box_get(hash, side)};\n"
         end
         css
     end
