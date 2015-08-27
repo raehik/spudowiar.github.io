@@ -214,8 +214,7 @@ to step 3 in the OpenWRT boot process (shown above, in the first one)
 [ -z "$PREINIT" ] && exec /sbin/init
 ```
 
-This line was the very first line of code (I'm psychic!). Above this line we 
-insert
+This line should be the first line. Above this line we insert
 
 ```sh
 [ $$ -eq 1 ] && . /etc/debian_boot >>/debian.log 2>&1
@@ -237,8 +236,7 @@ mount -t proc proc /proc
 mount -t sysfs sys /sys
 echo "Kernel filesystems mounted."
 
-for module in ehci-hcd ehci-platform ltq_hcd_danube scsi_mod sd_mod usb-storage 
-jbd2 ext4; do
+for module in ehci-hcd ehci-platform ltq_hcd_danube scsi_mod sd_mod usb-storage jbd2 ext4; do
     echo "Loading $module"
     modprobe $module
 done

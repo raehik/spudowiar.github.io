@@ -57,7 +57,7 @@ redcarpet:
         - smart
         - strikethrough
     pygments:
-        linenos: table
+        linenos: inline
 
 sass:
     style: compressed

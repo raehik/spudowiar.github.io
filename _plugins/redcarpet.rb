@@ -15,8 +15,9 @@ class Jekyll::Converters::Markdown::RedcarpetParser
     module WithPygments
         def add_code_tags(code, lang)
             code = code.to_s
-            code = code.gsub(/<pre>/, "<pre><code class=\"language-#{lang}\" data-lang=\"#{lang}\">")
-            code = code.gsub(/<\/pre>/,"</code></pre>")
+            code = code.gsub /<pre>/, "<pre><code class=\"language-#{lang}\" data-lang=\"#{lang}\">"
+            code = code.gsub /<\/pre>/,"</code></pre>"
+            code = code.gsub /(<span class="lineno">.+?)<\/span> /, "\\1 </span>"
         end
 
         def block_code(code, lang)
