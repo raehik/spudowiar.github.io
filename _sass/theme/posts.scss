@@ -1,4 +1,10 @@
 article {
+    &.page header h1 {
+        h1 {
+            font-size: 2.75em;
+        }
+    }
+
     header {
         h1 {
             &, * {
@@ -7,7 +13,6 @@ article {
 
             margin-top: 0px;
             margin-bottom: 0px;
-            font-size: 2.75em;
         }
 
         h4 {
@@ -26,4 +31,9 @@ article {
     
     line-height: 1.6;
     margin-bottom: 3em;
+
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+    }
 }
