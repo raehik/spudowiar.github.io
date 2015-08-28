@@ -28,7 +28,7 @@ end
 # 'canonical' tag {{{
 class Jekyll::Tags::Canonical < Liquid::Tag
     def initialize(tag, markup, tokens)
-        @url = markup if !markup.empty?
+        @url = markup unless markup.empty?
         super
     end
 
@@ -43,7 +43,7 @@ Liquid::Template.register_tag 'canonical', Jekyll::Tags::Canonical
 # 'self' tag {{{
 class Jekyll::Tags::Self < Liquid::Tag
     def initialize(tag, markup, tokens)
-        @url = markup if !markup.empty?
+        @url = markup unless markup.empty?
         super
     end
 

@@ -1,3 +1,4 @@
 @mixin monospace {
     font-family: {{ theme.font.monospace }};
+    font-weight: 400;
 }

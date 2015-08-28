@@ -2,7 +2,7 @@
 layout: default
 stylesheet: post
 ---
-{% datefmt {{ page.date }} %}
+{% datefmt {{ page.date | fallback: site.time }} %}
 <article class="page">
     <header>
         <h4><time datetime="{{date_full}}" title="{{date_long}}">{{date_short}}</time></h4>

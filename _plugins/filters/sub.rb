@@ -1,5 +1,5 @@
-# regex replace filter (Jekyll::SubFilter) {{{
-module Jekyll::SubFilter
+# regex replace filter (Jekyll::Filters::Sub) {{{
+module Jekyll::Filters::Sub
     def sub(value, regex, replacement)
         value.sub(Regexp.new(regex), replacement)
     end
@@ -10,6 +10,6 @@ module Jekyll::SubFilter
 end
 # }}}
 
-Liquid::Template.register_filter Jekyll::SubFilter
+Liquid::Template.register_filter Jekyll::Filters::Sub
 
 # vim: fdm=marker

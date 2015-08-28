@@ -18,12 +18,14 @@ class Jekyll::Tags::Tweet < Liquid::Tag
     end
 
     def render(context)
-        params = @params.map do |k, v|
-            "#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-        end.join '&'
-        url = "https://api.twitter.com/1/statuses/oembed.json?#{params}"
-        response = JSON.parse Net::HTTP.get URI url
-        response["html"]
+        unless context["site"]["offline"]
+            params = @params.map do |k, v|
+                "#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
+            end.join '&'
+            url = "https://api.twitter.com/1/statuses/oembed.json?#{params}"
+            response = JSON.parse Net::HTTP.get URI url
+            response["html"]
+        end
     end
 end
 

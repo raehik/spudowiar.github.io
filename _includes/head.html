@@ -2,11 +2,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+{% unless site.offline %}
 {% include head/redirect.html %}
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:400,500,300,600,700" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic|Source+Code+Pro:300,400,500,600,700" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+<!--[if IE]>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+{% endunless %}
 
 <title>{{ site.prefix }}{{ page.title | fallback: site.title }}</title>
 
@@ -18,4 +22,6 @@
 <link rel="canonical" href="{% canonical %}" />
 <meta name="description" content="{{ page.description | fallback: site.description | markdownify | strip_html | strip_newlines | truncate: 160 }}" />
 
+{% unless site.offline %}
 {% include head/analytics.html %}
+{% endunless %}

@@ -6,6 +6,7 @@ class Redcarpet::Render::HTML
             :Google => lambda { |query| "http://google.com/?q=#{CGI.escape query}" },
             :Wikipedia => lambda { |topic| "https://wikipedia.org/wiki/#{CGI.escape(topic).gsub "+", "%20"}" },
             :Git => lambda { |url| "https://git-scm.com/#{url}" },
+            :ArchWiki => lambda { |title| "https://wiki.archlinux.org/index.php/#{CGI.escape(title).gsub "+", "_"}" },
 
             :source => lambda { |path| shortlinks[:GitHub]["./#{@config["github"]["repository"]}", @config["github"]["branch"], path] },
             :repo => lambda { shortlinks[:source][nil] },

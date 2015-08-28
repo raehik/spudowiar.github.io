@@ -1,6 +1,6 @@
-# syntactic sugar filter (Jekyll::TernaryFilters) {{{
-module Jekyll::TernaryFilters
-    # TernaryFilters operator {{ value | if: truth | else: untruth }} {{{
+# syntactic sugar filter (Jekyll::Filters::Ternary) {{{
+module Jekyll::Filters::Ternary
+    # Filters::Ternary operator {{ value | if: truth | else: untruth }} {{{
     def if(value, truth)
         value ? truth : nil
     end
@@ -24,6 +24,6 @@ module Jekyll::TernaryFilters
 end
 # }}}
 
-Liquid::Template.register_filter Jekyll::TernaryFilters
+Liquid::Template.register_filter Jekyll::Filters::Ternary
 
 # vim: fdm=marker
